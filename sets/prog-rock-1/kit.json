@@ -1,0 +1,16 @@
+{
+ "name": "prog-rock-1",
+ "source": "D:/Coding Projects/LoopMix/samples/prog-rock/musicradar-prog-rock-samples/Loopkit 1 138bpm",
+ "tempo": 138,
+ "key": "G",
+ "section_pattern": "-(\\d+)\\.wav$",
+ "parts": {
+  "Drums": ["Drums"],
+  "Bass": ["Bass"],
+  "Part A": ["Guitar A", "Guitar B"],
+  "Part B": ["Organ"],
+  "Part X": ["PhaseRhodes"]
+ },
+ "break": {"folders": ["Lead Guitar"], "keep": ["Drums"]},
+ "fx": {"folders": ["Drum Hits"]}
+}

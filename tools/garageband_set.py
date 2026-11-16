@@ -9,7 +9,7 @@ number of sections is set by the smallest part. Loops that don't fit are left
 out rather than leaving keys empty.
 
 Usage:  python tools/garageband_set.py "<folder of WAVs>" <pkg> [<pkg> ...]
-Output: sets/electro-house/layout.json + samples/staged/Electro House/<track>/*.wav
+Output: sets/electro-house/layout.json + <settings.STAGED>/Electro House/<track>/*.wav
 """
 import json
 import re
@@ -21,13 +21,14 @@ from typing import Dict, List
 
 import numpy as np
 
+import settings
 from apple_loops import read_packages
 from audio import features, rank, read_mono, spread
 from render_loops import render
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "sets" / "electro-house"
-STAGED = ROOT / "samples" / "staged" / "Electro House"
+STAGED = Path(settings.STAGED) / "Electro House"
 
 TEMPO = 128.0
 RATE = 44100
