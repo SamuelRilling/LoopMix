@@ -1,4 +1,4 @@
-# Task: work on the key map, or produce a static map of a set
+# Task: work on the key map, or preview a set on it
 
 Two things share this prompt: the **live key map page** (inside Live) and the **preview** of a set on that same page (`tools/viz_preview.py`, no Live needed).
 
