@@ -94,7 +94,7 @@ It strips arrangement clips and all session clips except the first.
 ## Validation checklist
 1. `layout.json`: every loop part has clips in every section you expect; each loop's `frames` ≈ `beats × 60 / tempo × 44100`
    (within 1 ms) and `shift` is 0; every `path` exists; breaks name kept parts that exist; one tempo, one key.
-2. `python tools/set_map.py sets/<kit>/layout.json` and read the page: no empty key where you expected a loop.
+2. `python tools/viz_preview.py sets/<kit>/layout.json --section N --part N` and open the URL it prints: no empty key where you expected a loop (Ctrl+C to stop).
 3. `.als`: scene count = sections × 13; clip count = clips in layout; no missing samples (command in
    [prompts/build-in-live.md](../prompts/build-in-live.md)).
 4. In Live: open the Set (choose **Don't Save** if an older copy is open), restart Live if `LoopMix/` changed, press every key

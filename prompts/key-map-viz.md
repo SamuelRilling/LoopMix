@@ -1,20 +1,20 @@
 # Task: work on the key map, or produce a static map of a set
 
-Two things share this prompt: the **live key map page** (inside Live) and the **static set map** (`tools/set_map.py`, no Live needed).
+Two things share this prompt: the **live key map page** (inside Live) and the **preview** of a set on that same page (`tools/viz_preview.py`, no Live needed).
 
-## Static set map for a new set
+## Preview a new set
 ```bash
-python tools/set_map.py sets/<kit>/layout.json [out.html]
+python tools/viz_preview.py sets/<kit>/layout.json --port 9891 --section 0 --part 0 --mode loop
 ```
-Writes one self-contained HTML page (default `sets/<kit>/set-map.html`, git-ignored): tempo and key, one tab per section, and per tab a
-table of the 13 white keys (D3 … B4) × parts with the loop name in each cell, plus the 5 breaks (C#3 D#3 F#3 G#3 A#3) and 5 FX
-(C#4 D#4 F#4 G#4 A#4) of that section. Colours are viz.html's (loop teal, break amber, FX pink). The page needs no network. To change it,
-edit `tools/set_map.py` (`CSS`, `section_html`) and run the test:
+Serves the same `LoopMix/viz.html` through `LoopMix/viz.py`, but `/state` is built from `layout.json` instead of Live (`build_snapshot()`):
+nothing plays, `is_playing` is false, bar 4. The keys show the selected part's 13 loops in the chosen section, its 5 breaks and 5 FX (labels
+without the `[...]` suffix). `--section` and `--part` are 0-based (part order Drums, Bass, Part A, Part B, Part X); defaults: port 9891,
+section 0, part 0, loop mode. It prints the URL and runs until Ctrl+C; to check it from a script, start it in the background,
+`curl http://127.0.0.1:9891/state`, then stop it. Check both reference layouts (`sets/electro-house/layout.json`, `sets/prog-rock-1/layout.json`).
+If you change `_snapshot()` in `loop_mix.py`, change `build_snapshot()` to match; unit test:
 ```bash
-python -m pytest -q tests/test_set_map.py
+python -m pytest -q tests/test_viz_preview.py
 ```
-Check on both reference layouts (`sets/electro-house/layout.json`, `sets/prog-rock-1/layout.json`); open the HTML and confirm every
-section tab shows loops. Report the output path.
 
 ## How the live page works
 - `LoopMix/viz.py` starts a read-only HTTP server on `127.0.0.1:<config.VIZ_PORT>` (default 9890; `None` = off) in a daemon thread.

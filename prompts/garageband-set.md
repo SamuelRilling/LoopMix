@@ -21,11 +21,11 @@ You are building `sets/electro-house/layout.json` (and staged WAVs) from a Garag
    ```
    Output is fixed to `sets/electro-house/layout.json` and `samples/staged/Electro House/`. It prints key, sections and clips per track.
    Fewer than 3 sections, or a part with 0 clips, means the pack is too small: report it, don't pad.
-3. Static overview:
+3. Preview the set on the key map page (no Live; foreground server, stop with Ctrl+C; start it in the background and curl `/state`):
    ```bash
-   python tools/set_map.py sets/electro-house/layout.json
+   python tools/viz_preview.py sets/electro-house/layout.json --port 9891
    ```
-   Every section needs 13 loops per part; look for empty cells in `sets/electro-house/set-map.html`.
+   Every section needs 13 loops per part; use `--section N --part N` to look for empty keys.
 4. Build the Set (next to the layout; `.als` is git-ignored):
    ```bash
    python tools/als_writer.py templates/base.als sets/electro-house/layout.json "sets/electro-house/Electro House.als"

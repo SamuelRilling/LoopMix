@@ -46,7 +46,7 @@ carries on. Details: [prompts/key-map-viz.md](../prompts/key-map-viz.md).
 ```
 GarageBand WAVs + Apple .pkg  --garageband_set.py-->  sets/electro-house/layout.json + samples/staged/Electro House/
 song kit WAVs + kit.json      --kit_set.py---------->  sets/<kit>/layout.json         + samples/staged/<kit>/
-layout.json + templates/base.als --als_writer.py-->  <name>.als      layout.json --set_map.py--> set-map.html
+layout.json + templates/base.als --als_writer.py-->  <name>.als      layout.json --viz_preview.py--> key map page (no Live)
 ```
 Shared: `audio.py` (loudness/onset energy, rank, spread), `render_loops.py` (offline retune/re-tempo), `apple_loops.py`
 (GarageBand tags from `.pkg`), `settings.py` (paths). See [building-sets.md](building-sets.md).

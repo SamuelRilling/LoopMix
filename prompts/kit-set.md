@@ -25,10 +25,12 @@ You turn a loop kit into `sets/<kit>/layout.json` and a Live Set. Read `docs/bui
    python tools/kit_set.py sets/<kit>/kit.json
    ```
    Output lists sections and clips per track. A `does not match section_pattern` error means fix the regex or the folder list.
-4. Overview, then the Set:
+4. Build the Set, then preview it on the key map page (the server runs until Ctrl+C; `curl http://127.0.0.1:9891/state` shows the snapshot):
    ```bash
-   python tools/set_map.py sets/<kit>/layout.json
    python tools/als_writer.py templates/base.als sets/<kit>/layout.json "sets/<kit>/<Kit Name>.als"
+   ```
+   ```bash
+   python tools/viz_preview.py sets/<kit>/layout.json --port 9891
    ```
    Never overwrite an existing `.als` (e.g. `Electro House.als`, `Prog Rock 1.als`) unless the user says so.
 5. Validate and open: `prompts/build-in-live.md`.

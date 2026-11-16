@@ -15,7 +15,7 @@ Two halves:
    ```
    python tools/kit_set.py sets/prog-rock-1/kit.json
    python tools/als_writer.py templates/base.als sets/prog-rock-1/layout.json "sets/prog-rock-1/Prog Rock 1.als"
-   python tools/set_map.py sets/prog-rock-1/layout.json
+   python tools/viz_preview.py sets/prog-rock-1/layout.json   # key map preview on :9891, no Live
    ```
 3. Open the `.als` in Live, press B1 until the key map page (<http://127.0.0.1:9890>) says LOOP, play.
 
@@ -33,7 +33,7 @@ Two halves:
 ```
 LoopMix/    remote script: config.py (edit), logic.py (pure, tested), loop_mix.py (Live glue), viz.py + viz.html (key map)
 tools/      settings.py (machine paths), apple_loops.py, garageband_set.py, kit_set.py, render_loops.py, audio.py,
-            als_writer.py, make_template.py, set_map.py, replay_log.py
+            als_writer.py, make_template.py, viz_preview.py, replay_log.py
 templates/  base.als  (tracks/returns/master the writer starts from)
 sets/       <kit>/layout.json (+ kit.json for song kits); *.als are generated and git-ignored
 samples/    audio (git-ignored); samples/staged is linked into Live's User Library
