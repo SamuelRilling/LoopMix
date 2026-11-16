@@ -38,7 +38,11 @@ Apple publishes a content index per app version at `https://audiocontentdownload
 ```
 python -c "import plistlib,sys;[print(v['DownloadName'],v['DownloadSize']//2**20,'MB',v['FileCheck']) for v in plistlib.load(open(sys.argv[1],'rb'))['Packages'].values() if v.get('ContainsAppleLoops')]" garageband1047.plist
 ```
-Orchestral material: `MAContent10_AssetPack_0329_AppleLoopsJamPackOrchestra` (name in the plist).
+Orchestral material: `MAContent10_AssetPack_0329_AppleLoopsJamPackOrchestra` is only 39 loops (8 MB, mixed keys/tempos). The full orchestra
+(2203 loops: violin, viola, cello, bass, harp, winds, brass, timpani, piano...) is `../lp10_ms3_content_2013/MAContent10_AppleLoopsLegacySymphony.pkg`
+(655 MB; the plist `DownloadName` is a relative path into the 2013 folder; `FileCheck` can be a list). `tools/garageband_set.py` hard-codes the
+electro-house roles/tempo/names, so an orchestra needs its roles remapped (`sets/classical/` was built by overriding `role`, `LOOP_TRACKS`,
+`DRUM_PARTS`, `BREAK_KEEPS` from a driver script; a proper `--style` option is a tools change).
 
 ## Pipeline 2: song kit — `tools/kit_set.py`
 ```
