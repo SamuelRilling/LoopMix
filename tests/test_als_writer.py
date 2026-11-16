@@ -2,7 +2,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
-from als_writer import WARP_BEATS, WARP_COMPLEX, sound_beats, warp_mode  # noqa: E402
+import pytest  # noqa: E402
+from als_writer import WARP_BEATS, WARP_COMPLEX, check_layout, sound_beats, warp_mode  # noqa: E402
 
 RATE = 44100
 AT_125 = 8 * 60 / 125 * RATE    # an 8-beat loop recorded at 125 BPM
@@ -30,4 +31,17 @@ def test_stretched_or_retuned_melodic_loops_use_complex():
 
 def test_drums_always_use_beats():
     assert warp_mode(loop(AT_125), "Drums", 128) == WARP_BEATS
-    assert warp_mode(loop(AT_125), "Part X", 128) == WARP_BEATS
+    assert warp_mode(loop(AT_125), "Toppers", 128) == WARP_BEATS
+
+
+def test_layout_parts_are_checked():
+    clips = [dict(row=0)]
+    check_layout({"parts": ["Strings"], "tracks": {"Strings": clips, "FX 2": clips}})
+    for bad in ({"parts": [], "tracks": {}},
+                {"parts": ["A"] * 2, "tracks": {"A": clips}},
+                {"parts": list("ABCDEFG"), "tracks": {n: clips for n in "ABCDEFG"}},
+                {"parts": ["Break"], "tracks": {"Break": clips}},
+                {"parts": ["A"], "tracks": {"A": []}},
+                {"parts": ["A"], "tracks": {"A": clips, "B": clips}}):
+        with pytest.raises(SystemExit):
+            check_layout(bad)

@@ -22,7 +22,7 @@ from render_loops import RATE, render
 
 ROWS_PER_SECTION = 13        # white keys per section
 BREAKS = FX = 5              # black keys per octave
-LOOP_TRACKS = ("Drums", "Bass", "Part A", "Part B", "Part X")
+MAX_PARTS = 6                # buttons B2..B7
 FX_TRACKS = tuple("FX %d" % (i + 1) for i in range(FX))
 TOLERANCE = 0.001            # seconds; a loop further off its bar length gets rendered
 
@@ -86,15 +86,17 @@ def clip(path: Path, row: int, tempo: float, frames: int, *, energy: float = 0.0
 def build_layout(kit: dict, energy: Callable[[Path], tuple], frames_of: Callable[[Path], int]) -> dict:
     """Pure placement of every clip; `file` is still the source WAV (stage() fixes paths)."""
     source, tempo, pattern = Path(kit["source"]), float(kit["tempo"]), kit["section_pattern"]
-    parts = {t: group_by_section(wav_files(source, kit["parts"][t]), pattern)
-             for t in LOOP_TRACKS if t in kit["parts"]}
+    names = list(kit["parts"])   # track names in button order (B2..B7)
+    if not 1 <= len(names) <= MAX_PARTS or set(names) & {"Break", *FX_TRACKS}:
+        raise SystemExit("kit parts: 1-%d tracks, none named Break or FX n: %r" % (MAX_PARTS, names))
+    parts = {t: group_by_section(wav_files(source, kit["parts"][t]), pattern) for t in names}
     brk = kit.get("break")
     break_groups = group_by_section(wav_files(source, brk["folders"]), pattern) if brk else {}
     ids = sorted({sid for g in [*parts.values(), break_groups] for sid in g}, key=sort_key)
-    names = ["Section %d" % int(i) if i.isdigit() else i for i in ids]
+    sections = ["Section %d" % int(i) if i.isdigit() else i for i in ids]
 
     layout = {"tempo": tempo, "key": kit.get("key", ""), "rows_per_section": ROWS_PER_SECTION,
-              "sections": names, "tracks": {}, "left_out": {}}
+              "sections": sections, "parts": names, "tracks": {}, "left_out": {}}
     for track, groups in parts.items():
         clips, left = [], 0
         for s, sid in enumerate(ids):

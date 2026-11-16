@@ -10,6 +10,13 @@
   "Section 5",
   "Section 6"
  ],
+ "parts": [
+  "Drums",
+  "Bass",
+  "Guitars",
+  "Organ",
+  "Rhodes"
+ ],
  "tracks": {
   "Drums": [
    {
@@ -183,7 +190,7 @@
     "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Bass/ProgK1Bass138G-06.wav"
    }
   ],
-  "Part A": [
+  "Guitars": [
    {
     "row": 0,
     "name": "ProgK1GuitarA138G-01",
@@ -196,7 +203,7 @@
     "energy": 0.5,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Part A/ProgK1GuitarA138G-01.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Guitars/ProgK1GuitarA138G-01.wav"
    },
    {
     "row": 1,
@@ -210,7 +217,7 @@
     "energy": 0.5,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Part A/ProgK1GuitarB138G-01.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Guitars/ProgK1GuitarB138G-01.wav"
    },
    {
     "row": 13,
@@ -224,7 +231,7 @@
     "energy": 0.5,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Part A/ProgK1GuitarA138G-02.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Guitars/ProgK1GuitarA138G-02.wav"
    },
    {
     "row": 14,
@@ -238,7 +245,7 @@
     "energy": 0.5,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Part A/ProgK1GuitarB138G-02.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Guitars/ProgK1GuitarB138G-02.wav"
    },
    {
     "row": 26,
@@ -252,7 +259,7 @@
     "energy": 0.0,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Part A/ProgK1GuitarB138G-03.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Guitars/ProgK1GuitarB138G-03.wav"
    },
    {
     "row": 27,
@@ -266,7 +273,7 @@
     "energy": 1.0,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Part A/ProgK1GuitarA138G-03.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Guitars/ProgK1GuitarA138G-03.wav"
    },
    {
     "row": 39,
@@ -280,7 +287,7 @@
     "energy": 0.0,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Part A/ProgK1GuitarB138G-04.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Guitars/ProgK1GuitarB138G-04.wav"
    },
    {
     "row": 40,
@@ -294,7 +301,7 @@
     "energy": 1.0,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Part A/ProgK1GuitarA138G-04.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Guitars/ProgK1GuitarA138G-04.wav"
    },
    {
     "row": 52,
@@ -308,7 +315,7 @@
     "energy": 0.5,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Part A/ProgK1GuitarA138G-05.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Guitars/ProgK1GuitarA138G-05.wav"
    },
    {
     "row": 53,
@@ -322,7 +329,7 @@
     "energy": 0.5,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Part A/ProgK1GuitarB138G-05.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Guitars/ProgK1GuitarB138G-05.wav"
    },
    {
     "row": 65,
@@ -336,7 +343,7 @@
     "energy": 0.5,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Part A/ProgK1GuitarA138G-06.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Guitars/ProgK1GuitarA138G-06.wav"
    },
    {
     "row": 66,
@@ -350,10 +357,10 @@
     "energy": 0.5,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Part A/ProgK1GuitarB138G-06.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Guitars/ProgK1GuitarB138G-06.wav"
    }
   ],
-  "Part B": [
+  "Organ": [
    {
     "row": 0,
     "name": "ProgK1Organ138G-01",
@@ -366,7 +373,7 @@
     "energy": 0.0,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Part B/ProgK1Organ138G-01.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Organ/ProgK1Organ138G-01.wav"
    },
    {
     "row": 13,
@@ -380,7 +387,7 @@
     "energy": 0.0,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Part B/ProgK1Organ138G-02.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Organ/ProgK1Organ138G-02.wav"
    },
    {
     "row": 26,
@@ -394,7 +401,7 @@
     "energy": 0.0,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Part B/ProgK1Organ138G-03.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Organ/ProgK1Organ138G-03.wav"
    },
    {
     "row": 39,
@@ -408,7 +415,7 @@
     "energy": 0.0,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Part B/ProgK1Organ138G-04.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Organ/ProgK1Organ138G-04.wav"
    },
    {
     "row": 52,
@@ -422,7 +429,7 @@
     "energy": 0.0,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Part B/ProgK1Organ138G-05.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Organ/ProgK1Organ138G-05.wav"
    },
    {
     "row": 65,
@@ -436,10 +443,10 @@
     "energy": 0.0,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Part B/ProgK1Organ138G-06.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Organ/ProgK1Organ138G-06.wav"
    }
   ],
-  "Part X": [
+  "Rhodes": [
    {
     "row": 0,
     "name": "ProgK1PhasRhodes138G-01",
@@ -452,7 +459,7 @@
     "energy": 0.0,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Part X/ProgK1PhasRhodes138G-01.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Rhodes/ProgK1PhasRhodes138G-01.wav"
    },
    {
     "row": 13,
@@ -466,7 +473,7 @@
     "energy": 0.0,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Part X/ProgK1PhasRhodes138G-02.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Rhodes/ProgK1PhasRhodes138G-02.wav"
    },
    {
     "row": 26,
@@ -480,7 +487,7 @@
     "energy": 0.0,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Part X/ProgK1PhasRhodes138G-03.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Rhodes/ProgK1PhasRhodes138G-03.wav"
    },
    {
     "row": 39,
@@ -494,7 +501,7 @@
     "energy": 0.0,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Part X/ProgK1PhasRhodes138G-04.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Rhodes/ProgK1PhasRhodes138G-04.wav"
    },
    {
     "row": 52,
@@ -508,7 +515,7 @@
     "energy": 0.0,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Part X/ProgK1PhasRhodes138G-05.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Rhodes/ProgK1PhasRhodes138G-05.wav"
    },
    {
     "row": 65,
@@ -522,7 +529,7 @@
     "energy": 0.0,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Part X/ProgK1PhasRhodes138G-06.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/prog-rock-1/Rhodes/ProgK1PhasRhodes138G-06.wav"
    }
   ],
   "Break": [
@@ -1045,9 +1052,9 @@
  "left_out": {
   "Drums": 0,
   "Bass": 0,
-  "Part A": 0,
-  "Part B": 0,
-  "Part X": 0,
+  "Guitars": 0,
+  "Organ": 0,
+  "Rhodes": 0,
   "Break": 0
  }
 }

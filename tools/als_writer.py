@@ -1,9 +1,11 @@
 """Write a LoopMix Live Set from a layout.json, using a template Set (templates/base.als).
 
 Live 11 can't import audio through its API, so the Set file is generated.
-A .als is gzip'd XML. From the template we reuse one audio clip, one scene and
-every track; we rebuild the scenes and clip slots, clone the Break track into
-an FX track, and set the tempo. Clips start after each file's AAC padding.
+A .als is gzip'd XML. From the template we reuse one audio clip, one scene, the
+Play track and the "Prototype" audio track. The prototype is cloned once per layout
+part (in `parts` order), then once for Break and each FX track that has clips, and
+removed; we rebuild the scenes and clip slots and set the tempo. Clips start after
+each file's AAC padding.
 
 Usage:  python tools/als_writer.py <templates/base.als> <layout.json> <out.als>
 """
@@ -25,8 +27,11 @@ PITCH_PRESET = CORE + "MIDI Effects/Pitch/+ 12.adv"
 PLAY_PRESET = CORE + "Instruments/Wavetable/Synth Lead/Bright SAW Lead.adv"
 SECTION_COLORS = (26, 6, 2, 14, 18, 10)    # Live palette indexes, one per section
 WARP_BEATS, WARP_COMPLEX = 0, 4
-DRUM_TRACKS = ("Drums", "Part X")
+DRUM_TRACKS = ("Drums", "Beats", "Toppers")   # warped with Beats mode
 LAUNCH_GLOBAL, LAUNCH_NOW = 0, 1   # clip launch quantization: Global / None
+PROTOTYPE = "Prototype"            # template audio track cloned for every set track
+MAX_PARTS = 6                      # buttons B2..B7
+FX_NAMES = tuple("FX %d" % (i + 1) for i in range(5))
 
 
 def element(xml: str, start_tag: str, end_tag: str, start: int = 0) -> tuple:
@@ -152,9 +157,22 @@ def tracks(xml: str):
         yield name, s, e
 
 
+def check_layout(layout: dict) -> None:
+    """Parts: 1..MAX_PARTS distinct names, none reserved, each with clips; no other tracks."""
+    parts = layout.get("parts") or []
+    reserved = ("Break",) + FX_NAMES
+    if not 1 <= len(parts) <= MAX_PARTS or len(set(parts)) != len(parts) or set(parts) & set(reserved):
+        raise SystemExit("layout parts must be 1-%d distinct names, not Break/FX: %r" % (MAX_PARTS, parts))
+    empty = [p for p in parts if not layout["tracks"].get(p)]
+    unknown = [t for t in layout["tracks"] if t not in parts and t not in reserved]
+    if empty or unknown:
+        raise SystemExit("parts without clips %r, tracks not in parts %r" % (empty, unknown))
+
+
 def main(template_path: str, layout_path: str, out_path: str) -> int:
     global TEMPO
     layout = json.loads(Path(layout_path).read_text(encoding="utf-8"))
+    check_layout(layout)
     TEMPO = layout["tempo"]
     per = layout["rows_per_section"]
     rows = per * len(layout["sections"])
@@ -162,15 +180,13 @@ def main(template_path: str, layout_path: str, out_path: str) -> int:
     clip_template = xml[slice(*element(xml, "<AudioClip ", "</AudioClip>"))]
     next_id = itertools.count(int(re.search(r'<NextPointeeId Value="(\d+)"', xml).group(1)))
 
-    # Layout tracks the template lacks (the FX tracks) = clones of Break, appended in order.
-    for wanted in layout["tracks"]:
-        existing = list(tracks(xml))
-        if any(n == wanted for n, _, _ in existing):
-            continue
-        _, s, e = next(t for t in existing if t[0] == "Break")
-        last_end = existing[-1][2]
-        track_ids = [int(i) for i in re.findall(r'<(?:MidiTrack|AudioTrack|ReturnTrack) Id="(\d+)"', xml)]
-        xml = xml[:last_end] + clone_track(xml[s:e], wanted, max(track_ids) + 1, next_id) + xml[last_end:]
+    # One clone of the prototype audio track per set track, in order; then drop the prototype.
+    order = list(layout["parts"]) + [t for t in ("Break",) + FX_NAMES if layout["tracks"].get(t)]
+    _, s, e = next(t for t in tracks(xml) if t[0] == PROTOTYPE)
+    proto = xml[s:e]
+    first_id = max(int(i) for i in re.findall(r'<(?:MidiTrack|AudioTrack|ReturnTrack) Id="(\d+)"', xml)) + 1
+    clones = "".join(clone_track(proto, name, first_id + i, next_id) for i, name in enumerate(order))
+    xml = xml[:s] + clones + xml[e:]
 
     xml = set_play_devices(xml, next_id)
 
