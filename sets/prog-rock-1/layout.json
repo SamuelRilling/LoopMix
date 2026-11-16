@@ -17,6 +17,9 @@
   "Organ",
   "Rhodes"
  ],
+ "drum_parts": [
+  "Drums"
+ ],
  "tracks": {
   "Drums": [
    {

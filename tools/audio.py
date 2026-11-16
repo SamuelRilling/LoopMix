@@ -2,6 +2,7 @@
 
 Energy = loudness (RMS) and busyness (onsets per second from spectral flux).
 """
+import struct
 import wave
 from pathlib import Path
 from typing import List, Tuple
@@ -26,6 +27,35 @@ def read_mono(path: Path) -> Tuple[np.ndarray, int]:
         raise ValueError(f"{path.name}: expected 16- or 24-bit PCM, got {width * 8}-bit")
     samples = ints.reshape(-1, channels).mean(axis=1) / float(1 << (8 * width - 1))
     return samples, rate
+
+
+ACID_ONE_SHOT, ACID_ROOT_SET = 0x01, 0x02   # flags of the `acid` chunk
+
+
+def read_loop_meta(path: Path) -> dict:
+    """Loop metadata embedded in a WAV: `acid` (ACIDized: one-shot flag, root note,
+    beats, tempo) and `smpl` (unity note). Keys present only when the file has them:
+    root (MIDI note), beats, tempo, one_shot."""
+    data = Path(path).read_bytes()
+    meta, p = {}, 12
+    while p + 8 <= len(data):
+        kind, size = data[p:p + 4], struct.unpack("<I", data[p + 4:p + 8])[0]
+        body = data[p + 8:p + 8 + size]
+        if kind == b"acid" and size >= 24:
+            flags, root, _, _, beats, _, _, tempo = struct.unpack("<IHHfIHHf", body[:24])
+            meta["one_shot"] = bool(flags & ACID_ONE_SHOT)
+            if flags & ACID_ROOT_SET:
+                meta["root"] = root
+            if beats:
+                meta["beats"] = beats
+            if tempo > 0:
+                meta["tempo"] = round(tempo, 3)
+        elif kind == b"smpl" and size >= 36 and "root" not in meta:
+            meta["root"] = struct.unpack("<I", body[12:16])[0]
+        p += 8 + size + (size & 1)
+    if "root" in meta:
+        meta["root"] %= 128
+    return meta
 
 
 def features(path: Path) -> Tuple[float, float]:

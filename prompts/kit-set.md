@@ -15,16 +15,23 @@ You turn a loop kit into `sets/<kit>/layout.json` and a Live Set. Read `docs/bui
 - An autonomous run whose brief already allows downloads doesn't need a per-file yes; still report name, URL and size.
 
 ## Choose the kit
-- **One tempo and one key for the whole kit** (kit_set doesn't retune; all loops must already fit).
+- **Source priority:** GarageBand / Apple Loops packages (`prompts/garageband-set.md`; licensed to the user, who owns Apple devices) >
+  files with embedded tempo/key (ACIDized WAV with `acid`/`smpl` chunks, Apple Loops AIFF) > name-only kits like the one below.
+  Check a file for metadata: `python -c "import sys; sys.path.insert(0,'tools'); from audio import read_loop_meta; print(read_loop_meta('<file>.wav'))"`
+  (`root`, `beats`, `tempo`, `one_shot`). With root notes, kit_set retunes loops to the kit's most common root (|shift| <= 5, else left out);
+  without them every loop must already share one key. Embedded beats/tempo win over file-name guesses.
 - Loops named by song section (`...-01.wav`, `...-02.wav`), several instruments each with the same numbered sections, so a regex can read the section id. Fewer, aligned sections beat many unrelated loops.
 - WAV, 44.1 kHz, 16/24-bit (the tool stops on other rates). Loops should be whole bars.
-- Instruments to parts: Drums, Bass, Part A, Part B, Part X (any may be missing). Optional break folder (fills, risers, leads that play once) and
-  FX folder (hits).
+- **Parts are per set: 1-6 tracks (B2-B7, in `parts` order), chosen by you** to best represent the ensemble. Cover the roles
+  rhythm/pulse, low end, harmony, melody, colour; merge similar instruments into one part (several guitar folders -> `Guitars`).
+  An orchestra might be Violins, Low Strings, Woodwinds, Brass, Percussion, Keys/Harp: pick from what the source actually has. Name tracks after the
+  instruments. Add `Break` (fills, risers, leads that play once) and `FX` (hits) only when the source has suitable material; never an empty track.
+  Name the drum parts in `kit.json` `drum_parts` (warped in Beats mode); if omitted they are the parts without root notes when metadata exists, else none.
 
 ## Steps
 1. Inspect the kit: list its folders and a few file names; note tempo and key from the folder/file names or the readme.
 2. Write `sets/<kit>/kit.json` (create the folder; use the kit's slug as `name`): `name`, `source`, `tempo`, `key`, `section_pattern`
-   (one regex group), `parts`, optional `break` (`folders`, `keep`) and `fx` (`folders`). Field table in `docs/building-sets.md`.
+   (one regex group), `parts`, optional `drum_parts`, `break` (`folders`, `keep`) and `fx` (`folders`). Field table in `docs/building-sets.md`.
 3. Generate (kit_set stages WAVs under `samples/staged/<name>/`; renders loops that are off their bar length):
    ```bash
    python tools/kit_set.py sets/<kit>/kit.json

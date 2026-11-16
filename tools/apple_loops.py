@@ -5,11 +5,17 @@ cpio archive of .caf files. Each .caf carries a `uuid` chunk with the tags
 GarageBand's loop browser filters on: category, subcategory, key, key type,
 beat count and descriptors (Single/Ensemble, Part/Fill, Relaxed/Intense, ...).
 
-Only the metadata is read here; the audio comes from your WAV copies.
+The audio is decoded straight from the same packages: `decode_packages` runs each
+.caf through ffmpeg (16-bit 44.1 kHz WAV). ffmpeg already drops the AAC priming
+and trailing padding, so a decoded file is exactly `valid frames` long and its
+loop starts on frame 0.
 """
 import gzip
 import re
+import shutil
 import struct
+import subprocess
+import tempfile
 import zlib
 from pathlib import Path
 from typing import Dict, Iterator, Tuple
@@ -52,8 +58,7 @@ def _cpio(buf: bytes) -> Iterator[Tuple[str, bytes]]:
 def _loop_tags(caf: bytes) -> Dict[str, str]:
     """GarageBand tags, plus 'valid frames' and 'priming frames' from the pakt chunk.
 
-    AAC decoders put `priming frames` of padding before the audio; a WAV made
-    from the .caf keeps it, so a clip must start that many frames in.
+    (ffmpeg removes that padding when decoding, so decoded WAVs need no offset.)
     """
     tags = {}
     p = 8
@@ -73,11 +78,24 @@ def _loop_tags(caf: bytes) -> Dict[str, str]:
     return tags
 
 
-def read_packages(pkgs) -> Dict[str, Dict[str, str]]:
-    """Loop name (no extension) -> GarageBand tags, across all packages."""
-    tags = {}
-    for pkg in pkgs:
-        for name, data in _cpio(_payload(Path(pkg))):
-            if name.endswith(".caf"):
-                tags[Path(name).stem] = _loop_tags(data)
-    return tags
+def decode_packages(pkgs, dst: Path) -> Dict[str, Tuple[Path, Dict[str, str]]]:
+    """Loop name -> (decoded WAV in `dst`, GarageBand tags); decodes only what is missing."""
+    ffmpeg = shutil.which("ffmpeg")
+    if ffmpeg is None:
+        raise RuntimeError("ffmpeg is needed to decode Apple's .caf loops")
+    dst.mkdir(parents=True, exist_ok=True)
+    loops = {}
+    with tempfile.TemporaryDirectory() as tmp:
+        for pkg in pkgs:
+            for name, data in _cpio(_payload(Path(pkg))):
+                if not name.endswith(".caf"):
+                    continue
+                stem = Path(name).stem
+                wav = dst / (stem + ".wav")
+                if not wav.exists():
+                    caf = Path(tmp) / "in.caf"
+                    caf.write_bytes(data)
+                    subprocess.run([ffmpeg, "-v", "error", "-y", "-i", str(caf), "-ar", "44100",
+                                    "-c:a", "pcm_s16le", str(wav)], check=True)
+                loops[stem] = (wav, _loop_tags(data))
+    return loops

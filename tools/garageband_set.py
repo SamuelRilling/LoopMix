@@ -1,16 +1,18 @@
 """Arrange a GarageBand loop pack into a LoopMix layout.
 
 Roles come from GarageBand's own tags (category, subcategory, key, descriptors),
-read from Apple's .pkg files. Drums are split into beats and toppers by sound
+and the audio itself, both read from Apple's .pkg files (the .caf loops are decoded
+once with ffmpeg into a cache next to settings.STAGED; no other WAVs are needed). Drums are split into beats and toppers by sound
 (kick or no kick), since GarageBand files both as "Electronic Beats".
 
 Every section is full: each part gets exactly ROWS loops per section, and the
 number of sections is set by the smallest part. Loops that don't fit are left
 out rather than leaving keys empty.
 
-Usage:  python tools/garageband_set.py "<folder of WAVs>" <pkg> [<pkg> ...]
-Output: sets/electro-house/layout.json + <settings.STAGED>/Electro House/<track>/*.wav
+Usage:  python tools/garageband_set.py [--out <dir>] [--staged <dir>] <pkg> [<pkg> ...]
+Output: <out, default sets/electro-house>/layout.json + <staged, default settings.STAGED>/Electro House/<track>/*.wav
 """
+import argparse
 import json
 import re
 import shutil
@@ -22,26 +24,26 @@ from typing import Dict, List
 import numpy as np
 
 import settings
-from apple_loops import read_packages
+from apple_loops import decode_packages
 from audio import features, rank, read_mono, spread
 from render_loops import render
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "sets" / "electro-house"
 STAGED = Path(settings.STAGED) / "Electro House"
+DECODED = Path(settings.STAGED).parent / "decoded"   # .caf loops decoded to WAV (outside git)
 
 TEMPO = 128.0
 RATE = 44100
 ROWS = 13                     # white keys per section
 BREAKS = FX = 5               # black keys per octave
-DEFAULT_PRIMING = 2112        # AAC padding, for the few loops Apple's packages lack
-END_PADDING = 449             # AAC padding after the audio (same encoder for the whole pack)
 FX_TRACKS = tuple("FX %d" % (i + 1) for i in range(FX))   # one track per key: FX overlap
 KICK_RATIO = 0.35             # share of energy under 120 Hz that marks a full beat
 MAX_SHIFT = 5                 # semitones; GarageBand-style retune to the set key
 BREAK_KEEPS = "[Bass, Synths, Music Beds]"   # drums drop out during a transition
 
 LOOP_TRACKS = ("Beats", "Bass", "Synths", "Music Beds", "Toppers")   # = layout parts, B2..B6
+DRUM_PARTS = ("Beats", "Toppers")
 SECTION_NAMES = {
     3: ("Warm-up", "Groove", "Peak"),
     4: ("Warm-up", "Groove", "Drive", "Peak"),
@@ -87,9 +89,10 @@ def shift_to(root: str, target: int) -> int:
     return (target - NOTES[root] + 6) % 12 - 6
 
 
-def main(src: Path, pkgs: List[str]) -> int:
-    wavs = {p.stem: p for p in sorted(src.glob("*.wav"))}
-    tags = with_sibling_tags(list(wavs), read_packages(pkgs))
+def main(pkgs: List[str], out: Path = OUT, staged: Path = STAGED) -> int:
+    decoded = decode_packages(pkgs, DECODED)
+    wavs = {n: decoded[n][0] for n in sorted(decoded)}
+    tags = with_sibling_tags(list(wavs), {n: t for n, (_, t) in decoded.items()})
     loops = []
     for name, path in wavs.items():
         t = tags[name]
@@ -102,11 +105,10 @@ def main(src: Path, pkgs: List[str]) -> int:
         if t.get("key signature") and t["key signature"] not in NOTES:
             continue
         rms, onsets = features(path)
-        priming = int(t.get("priming frames", DEFAULT_PRIMING))
-        frames = int(t.get("valid frames", 0)) or None
+        frames = int(t["valid frames"]) if t.get("valid frames") else None
         loops.append(dict(name=name, path=path, role=r, root=t.get("key signature"),
                           beats=float(t["beat count"]) if t.get("beat count") else None,
-                          priming=priming, valid=frames, rms=rms, onsets=onsets,
+                          valid=frames, rms=rms, onsets=onsets,
                           lean=1 if "Intense" in desc else -1 if "Relaxed" in desc else 0))
 
     tonal_roots = Counter(l["root"] for l in loops if l["root"])
@@ -126,7 +128,7 @@ def main(src: Path, pkgs: List[str]) -> int:
     names = SECTION_NAMES.get(sections) or tuple(f"Level {i + 1}" for i in range(sections))
 
     layout = {"tempo": TEMPO, "key": f"{key} minor", "rows_per_section": ROWS,
-              "sections": list(names), "parts": list(LOOP_TRACKS), "tracks": {}, "left_out": {}}
+              "sections": list(names), "parts": list(LOOP_TRACKS), "drum_parts": list(DRUM_PARTS), "tracks": {}, "left_out": {}}
     for r, pool in pools.items():
         need = sections * ROWS
         if pool[0]["root"]:   # tonal: least retuning first, then energy order
@@ -150,9 +152,9 @@ def main(src: Path, pkgs: List[str]) -> int:
                                    for s in range(sections)]
     layout["left_out"]["FX"] = max(len(fx) - sections * FX, 0)
 
-    stage(layout, src)
-    OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / "layout.json").write_text(json.dumps(layout, indent=1), encoding="utf-8")
+    stage(layout, wavs, staged)
+    out.mkdir(parents=True, exist_ok=True)
+    (out / "layout.json").write_text(json.dumps(layout, indent=1), encoding="utf-8")
     print(f"key {layout['key']}, {sections} sections: {', '.join(names)}")
     for r, rows in layout["tracks"].items():
         print(f"  {r:7s} {len(rows):3d} clips, {layout['left_out'].get(r, '-')} left out")
@@ -163,20 +165,19 @@ def clip(l: dict, row: int, one_shot: bool = False, suffix: str = "", bars: bool
          instant: bool = False) -> dict:
     """`audio_beats` = the sound's own length (warp markers, no stretching);
     `beats` = the clip's length: tagged loop length, the sound itself, or whole bars."""
-    frames = l["valid"] or audio_frames(l["path"], l["priming"])
+    frames = l["valid"] or wav_frames(l["path"])
     audio_beats = round(frames / RATE * TEMPO / 60, 3)
     beats = l["beats"] or audio_beats
     if bars:  # breaks last whole bars, so stopped parts come back on the bar
         beats = max(4, 4 * round(audio_beats / 4))
     return dict(row=row, name=l["name"] + suffix, file=l["name"] + ".wav", beats=beats,
-                audio_beats=audio_beats, priming=l["priming"], frames=frames, shift=l["shift"],
+                audio_beats=audio_beats, priming=0, frames=frames, shift=l["shift"],
                 root=l["root"], energy=round(l["energy"], 3), loop=not one_shot, instant=instant)
 
 
-def audio_frames(path: Path, priming: int) -> int:
-    """Untagged files: WAV length minus the decoder's padding at both ends."""
-    x, _ = read_mono(path)
-    return len(x) - priming - END_PADDING
+def wav_frames(path: Path) -> int:
+    """Decoded files carry no padding: their length is the sound's length."""
+    return len(read_mono(path)[0])
 
 
 def needs_render(c: dict) -> bool:
@@ -185,15 +186,15 @@ def needs_render(c: dict) -> bool:
     return c["loop"] and (c["shift"] != 0 or stretched)
 
 
-def stage(layout: dict, src: Path) -> None:
+def stage(layout: dict, wavs: Dict[str, Path], staged: Path) -> None:
     """Put the chosen WAVs under the User Library junction (samples/staged).
 
-    Loops needing a new key or tempo are rendered (exactly `beats` long, no
-    decoder padding); everything else is copied as-is.
+    Loops needing a new key or tempo are rendered (exactly `beats` long);
+    everything else is copied as-is.
     """
     ffmpeg = shutil.which("ffmpeg")
     for r, rows in layout["tracks"].items():
-        dst = STAGED / r
+        dst = staged / r
         dst.mkdir(parents=True, exist_ok=True)
         for c in rows:
             if needs_render(c):
@@ -201,15 +202,20 @@ def stage(layout: dict, src: Path) -> None:
                 if not target.exists():
                     if ffmpeg is None:
                         raise RuntimeError("ffmpeg (with the rubberband filter) is needed to render loops")
-                    render(src / c["file"], target, c["priming"], c["frames"], c["beats"], c["shift"], TEMPO, ffmpeg)
-                c.update(rendered_from=c["shift"], shift=0, priming=0,
+                    render(wavs[c["file"][:-4]], target, 0, c["frames"], c["beats"], c["shift"], TEMPO, ffmpeg)
+                c.update(rendered_from=c["shift"], shift=0,
                          frames=int(round(c["beats"] * 60 / TEMPO * RATE)), file=target.name)
             else:
                 target = dst / c["file"]
                 if not target.exists():
-                    shutil.copy2(src / c["file"], target)
+                    shutil.copy2(wavs[c["file"][:-4]], target)
             c["path"] = str(target).replace("\\", "/")
 
 
 if __name__ == "__main__":
-    sys.exit(main(Path(sys.argv[1]), sys.argv[2:]))
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--out", type=Path, default=OUT)
+    ap.add_argument("--staged", type=Path, default=STAGED)
+    ap.add_argument("pkgs", nargs="+")
+    a = ap.parse_args()
+    sys.exit(main(a.pkgs, a.out, a.staged))

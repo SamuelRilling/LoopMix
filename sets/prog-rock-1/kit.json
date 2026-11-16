@@ -11,6 +11,7 @@
   "Organ": ["Organ"],
   "Rhodes": ["PhaseRhodes"]
  },
+ "drum_parts": ["Drums"],
  "break": {"folders": ["Lead Guitar"], "keep": ["Drums"]},
  "fx": {"folders": ["Drum Hits"]}
 }

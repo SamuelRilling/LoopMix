@@ -4,8 +4,9 @@ Live 11 can't import audio through its API, so the Set file is generated.
 A .als is gzip'd XML. From the template we reuse one audio clip, one scene, the
 Play track and the "Prototype" audio track. The prototype is cloned once per layout
 part (in `parts` order), then once for Break and each FX track that has clips, and
-removed; we rebuild the scenes and clip slots and set the tempo. Clips start after
-each file's AAC padding.
+removed; we rebuild the scenes and clip slots and set the tempo. Clips start at each
+file's `priming` offset (0 for files decoded from Apple's packages). Parts named in the
+layout's `drum_parts` are warped in Beats mode, the rest in Complex when stretched or retuned.
 
 Usage:  python tools/als_writer.py <templates/base.als> <layout.json> <out.als>
 """
@@ -27,7 +28,6 @@ PITCH_PRESET = CORE + "MIDI Effects/Pitch/+ 12.adv"
 PLAY_PRESET = CORE + "Instruments/Wavetable/Synth Lead/Bright SAW Lead.adv"
 SECTION_COLORS = (26, 6, 2, 14, 18, 10)    # Live palette indexes, one per section
 WARP_BEATS, WARP_COMPLEX = 0, 4
-DRUM_TRACKS = ("Drums", "Beats", "Toppers")   # warped with Beats mode
 LAUNCH_GLOBAL, LAUNCH_NOW = 0, 1   # clip launch quantization: Global / None
 PROTOTYPE = "Prototype"            # template audio track cloned for every set track
 MAX_PARTS = 6                      # buttons B2..B7
@@ -59,15 +59,15 @@ def sound_beats(c: dict) -> float:
     return float(c["beats"]) if c["loop"] else float(c.get("audio_beats", c["beats"]))
 
 
-def warp_mode(c: dict, track: str, tempo: float) -> int:
-    """Beats suits drums; on sustained sounds it chops when stretching, so melodic
-    loops that are retuned or played off their own tempo use Complex instead."""
+def warp_mode(c: dict, track: str, tempo: float, drum_parts=()) -> int:
+    """Beats suits drums (the layout's `drum_parts`); on sustained sounds it chops when
+    stretching, so melodic loops that are retuned or played off their own tempo use Complex."""
     stretched = abs(c["frames"] / RATE - sound_beats(c) * 60 / tempo) > 0.001
-    melodic = track not in DRUM_TRACKS
+    melodic = track not in drum_parts
     return WARP_COMPLEX if melodic and (c["shift"] or stretched) else WARP_BEATS
 
 
-def audio_clip(template: str, c: dict, color: int, track: str) -> str:
+def audio_clip(template: str, c: dict, color: int, track: str, drum_parts=()) -> str:
     path = c["path"]
     lib = library_path(path)
     beats = c["beats"]
@@ -91,7 +91,7 @@ def audio_clip(template: str, c: dict, color: int, track: str) -> str:
         x = set_value(x, "DefaultDuration", w.getnframes())
     x = set_value(x, "DefaultSampleRate", RATE)
     x = set_value(x, "PitchCoarse", c["shift"])
-    x = set_value(x, "WarpMode", warp_mode(c, track, TEMPO))
+    x = set_value(x, "WarpMode", warp_mode(c, track, TEMPO, drum_parts))
     x = set_value(x, "IsWarped", "true")
     x = set_value(x, "LaunchQuantisation", LAUNCH_NOW if c.get("instant") else LAUNCH_GLOBAL)
     markers = ('<WarpMarkers><WarpMarker Id="0" SecTime="%r" BeatTime="0" />'
@@ -192,7 +192,8 @@ def main(template_path: str, layout_path: str, out_path: str) -> int:
 
     # Clip slots, track by track (from the end so offsets stay valid).
     for name, s, e in reversed(list(tracks(xml))):
-        clips = {c["row"]: audio_clip(clip_template, c, SECTION_COLORS[c["row"] // per % len(SECTION_COLORS)], name)
+        clips = {c["row"]: audio_clip(clip_template, c, SECTION_COLORS[c["row"] // per % len(SECTION_COLORS)], name,
+                           layout.get("drum_parts", []))
                  for c in layout["tracks"].get(name, [])}
         xml = xml[:s] + rebuild_slots(xml[s:e], rows, clips) + xml[e:]
 

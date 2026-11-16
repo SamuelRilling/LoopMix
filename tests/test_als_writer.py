@@ -29,9 +29,10 @@ def test_stretched_or_retuned_melodic_loops_use_complex():
     assert warp_mode(loop(AT_128), "Part B", 128) == WARP_BEATS
 
 
-def test_drums_always_use_beats():
-    assert warp_mode(loop(AT_125), "Drums", 128) == WARP_BEATS
-    assert warp_mode(loop(AT_125), "Toppers", 128) == WARP_BEATS
+def test_drum_parts_come_from_the_layout_not_the_track_name():
+    assert warp_mode(loop(AT_125), "Kit", 128, ["Kit"]) == WARP_BEATS
+    assert warp_mode(loop(AT_125), "Drums", 128) == WARP_COMPLEX   # not listed: treated as melodic
+    assert warp_mode(loop(AT_125), "Drums", 128, ["Drums"]) == WARP_BEATS
 
 
 def test_layout_parts_are_checked():
