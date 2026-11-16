@@ -1,14 +1,14 @@
 from LoopMix.logic import (LOOP, PLAY, Action, Layout, State, kept_parts, on_cc, on_note,
                            phrase_release, resume_beat, section_row)
 
-L = Layout(mode_cc=97, part_ccs=(96, 66, 67, 64, 65), octave_up_cc=20, octave_down_cc=21,
-           phrase_cc=10, base_note=48, latch=False, rows_per_section=13)
+L = Layout(mode_cc=97, part_ccs=(96, 66, 67, 64, 65, 7), octave_up_cc=20, octave_down_cc=21,
+           phrase_cc=10, base_note=48, latch=False, rows_per_section=13, same_value_ccs=(7,))
 PARTS = ("Drums", "Bass", "Part A", "Part B", "Part X")
 SECTIONS = 4
 
 
-def cc(state, number, value):
-    return on_cc(state, number, value, L, SECTIONS)
+def cc(state, number, value, parts=6):
+    return on_cc(state, number, value, L, SECTIONS, parts)
 
 
 def test_b1_toggles_mode_both_ways():
@@ -23,13 +23,25 @@ def test_momentary_release_is_ignored():
 
 
 def test_latching_button_acts_on_release_value_too():
-    s, _ = on_cc(State(), 97, 0, L._replace(latch=True), SECTIONS)
+    s, _ = on_cc(State(), 97, 0, L._replace(latch=True), SECTIONS, 6)
     assert s.mode == PLAY
 
 
 def test_part_buttons_select_part_in_loop_mode():
     s, a = cc(State(), 64, 127)
     assert s.part == 3 and a == (Action("select", part=3),)
+
+
+def test_b7_selects_sixth_part_on_its_same_value_presses():
+    s, a = cc(State(), 7, 0)
+    assert s.part == 5 and a == (Action("select", part=5),)
+    assert cc(s, 7, 0)[0].part == 5
+
+
+def test_part_button_beyond_the_sets_parts_does_nothing():
+    assert cc(State(part=1), 7, 0, parts=3) == (State(part=1), ())
+    assert cc(State(part=1), 64, 127, parts=3) == (State(part=1), ())
+    assert cc(State(), 67, 127, parts=3)[0].part == 2
 
 
 def test_part_buttons_ignored_in_play_mode():

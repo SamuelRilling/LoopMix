@@ -4,7 +4,7 @@
 |---|---|
 | LoopMix not in the Control Surface list | The `LoopMix` junction under `settings.REMOTE_SCRIPTS` is missing or wrong ([setup.md](setup.md)); restart Live. |
 | Changed `LoopMix/` or `config.py`, nothing changed | Live loads remote scripts only at startup: restart Live. |
-| Keys do nothing | Loop/Play mode wrong (B1; key map header shows LOOP or PLAY), Input not UMX 25, or no track named like `config.PART_TRACKS`. Live's status bar says "no track named …". |
+| Keys do nothing | Loop/Play mode wrong (B1; key map header shows LOOP or PLAY), Input not UMX 25, or the part button is past the Set's part count (key map shows the parts). |
 | Regenerated a Set, old content appears | The Set was open: Live asked to save on closing and overwrote the new file. Close it with **Don't Save**, regenerate, then open. |
 | Octave buttons do nothing | They must send their own CC in ASSIGN mode (20 / 21, [setup.md](setup.md)). They latch (127, 0, 127 …); the script counts every message as a press regardless of `BUTTONS_LATCH`. Set `LOG_ALL_CCS = True`, restart Live, press them and read the CC numbers in the log. |
 | Wrong clip launches | `tools/replay_log.py` (below). Check the section: octave buttons change it, not the part. |

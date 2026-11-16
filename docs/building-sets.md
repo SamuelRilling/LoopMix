@@ -11,14 +11,15 @@ Output is fixed: `sets/electro-house/layout.json` and `<STAGED>/Electro House/<t
 - **Tags** come from Apple's `.pkg` (`apple_loops.py` reads the xar → cpio → `.caf` `uuid` chunk): category, subcategory,
   key signature, key type, beat count, descriptors, plus AAC `priming frames` / `valid frames`. Loops absent from the
   packages borrow a numbered sibling's tags.
-- **Roles:** Bass → Bass, Keyboards → Part A, Mixed → Part B; Drums → Drums if ≥ 35% of the energy (30–120 Hz vs > 30 Hz) is
-  kick, otherwise Part X; Sound Effect / "Impacts & Crashes" → FX; other Sound Effects and untagged → Break.
+- **Roles** (track names = GarageBand categories): Drums → `Beats` if ≥ 35% of the energy (30–120 Hz vs > 30 Hz) is
+  kick, otherwise `Toppers`; Bass → `Bass`, Keyboards → `Synths`, Mixed → `Music Beds`. Parts in order: Beats, Bass, Synths,
+  Music Beds, Toppers (B2–B6); Sound Effect / "Impacts & Crashes" → FX; other Sound Effects and untagged → Break.
 - **Filter:** arrhythmic loops are dropped from the five parts; the set is minor, so major-only loops go; the most common root
   becomes the key (`<root> minor`); loops needing more than 5 semitones of retune go.
 - **Sections:** `min(pool sizes) // 13` full sections, each part exactly 13 loops per section, ordered Warm-up → Peak by
   energy (mean rank of loudness and onset rate, ±0.25 for the Intense/Relaxed tag). Tonal parts pick the least retuned loops
   first. 3–5 sections get names (Warm-up, Groove, [Lift,] Drive, Peak), otherwise `Level n`.
-- **Breaks:** 5 per section, `[Bass, Part A, Part B]` kept (drums drop out). **FX:** key *k* of every section on track `FX k`.
+- **Breaks:** 5 per section, `[Bass, Synths, Music Beds]` kept (drums drop out). **FX:** key *k* of every section on track `FX k`.
 - Needs `ffmpeg` (Rubber Band) for loops that must be retuned or re-tempoed; the rest are copied.
 
 Licence: you need an Apple device / GarageBand to use these loops. Apple's original `.pkg` files (for tags only) come
@@ -39,7 +40,7 @@ sections, not an energy ladder: loops of one song section share harmony. No retu
 | `tempo` | the kit's BPM (one per kit) |
 | `key` | label only, shown in `layout.json`/set map |
 | `section_pattern` | regex with **one group** applied to each WAV file name; the group is the section id (`-(\d+)\.wav$` → `03`) |
-| `parts` | `{"Drums"\|"Bass"\|"Part A"\|"Part B"\|"Part X": [subfolders of source]}`; omit parts the kit lacks |
+| `parts` | `{"<track name>": [subfolders of source], …}`: 1–6 tracks named as you like (not `Break`/`FX n`); order = B2…B7 |
 | `break` | optional `{"folders": [...], "keep": [part names]}`; kept parts keep playing during the break |
 | `fx` | optional `{"folders": [...]}`; hits are not sectioned, spread over `FX 1`–`FX 5` |
 
@@ -50,8 +51,8 @@ bar length is rendered offline.
 
 ## `layout.json`
 Top level: `tempo` (BPM, float), `key` (string, display), `rows_per_section` (13), `sections` (names, in order),
-`tracks` (`{track: [clip,…]}`), `left_out` (`{track: pool size − clips used}`; informational).
-Tracks: `Drums`, `Bass`, `Part A`, `Part B`, `Part X`, `Break`, `FX 1`…`FX 5` (names must equal `config.py`).
+`parts` (1–6 part track names in button order, B2…B7), `tracks` (`{track: [clip,…]}`), `left_out` (`{track: pool size − clips
+used}`; informational). `tracks` keys: the `parts` (each with ≥ 1 clip), plus optional `Break` and `FX 1`…`FX 5`.
 
 Clip fields (`als_writer` reads those marked *):
 | Field | Meaning |
@@ -78,18 +79,20 @@ length equals their beat length, so the writer's two warp markers map the file 1
 ```
 python tools/als_writer.py templates/base.als sets/<kit>/layout.json "sets/<kit>/<Name>.als"
 ```
-A `.als` is gzip'd XML. The writer takes the template's tracks, rebuilds scenes and clip slots (13 rows × sections; scenes named
-`S2 Groove · D3`), clones the `Break` track into any missing `FX n`, sets the tempo, and replaces the `Play` track's devices with
+A `.als` is gzip'd XML. The writer clones the template's `Prototype` audio track once per part (in `parts` order), then for
+`Break` and each `FX n` that has clips, and removes the prototype: no empty tracks. It rebuilds scenes and clip slots (13 rows ×
+sections; scenes named `S2 Groove · D3`), sets the tempo, and replaces the `Play` track's devices with
 Pitch (`+ 12.adv`, `Manual` 0) → Wavetable "Bright SAW Lead" (paths from `settings.CORE_DEVICES`). Clip start/loop points, warp
 markers, launch mode (loops: Global; FX: None), colour per section and warp mode (drums: Beats; melodic and retuned/stretched:
 Complex) are set from the layout.
 
-`templates/base.als` holds the tracks (Play, Drums, Bass, Part A, Part B, Part X, Break), returns and master, plus one session clip
-as the clip template. Make a new one from any working Set that has those tracks and at least one audio clip in a session slot:
+`templates/base.als` holds `Play` (MIDI), one audio track `Prototype`, returns and master, plus one session clip as the clip
+template. Make a new one from any working Set with a `Play` track and at least one audio clip in a session slot:
 ```
 python tools/make_template.py "<working.als>" [templates/base.als]
 ```
-It strips arrangement clips and all session clips except the first.
+It strips arrangement clips and all session clips except the first, and keeps only the audio track holding that clip, renamed
+`Prototype`.
 
 ## Validation checklist
 1. `layout.json`: every loop part has clips in every section you expect; each loop's `frames` ≈ `beats × 60 / tempo × 44100`

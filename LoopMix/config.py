@@ -8,9 +8,11 @@ The script logs every MIDI message it receives to Ableton's Log.txt
 MIDI_CHANNEL = 0
 
 # UMX25 factory buttons (latching: 127 on one press, 0 on the next).
-MODE_CC = 97                       # B1: Loop <-> Play
-PART_CCS = (96, 66, 67, 64, 65)    # B2..B6: select part
+MODE_CC = 97                          # B1: Loop <-> Play
+PART_CCS = (96, 66, 67, 64, 65, 7)    # B2..B7: select part 1..6 of the Set
 BUTTONS_LATCH = True
+# B7 (factory CC 7) sends 0 on every press, like B8: any message is a press.
+SAME_VALUE_CCS = (7,)
 
 # Octave buttons, each assigned its own CC in ASSIGN mode. They latch (127 / 0
 # on alternate presses), so every message counts as one press.
@@ -29,8 +31,8 @@ BASE_NOTE = 48
 # Log every CC the keyboard sends (to find button numbers). Set False after.
 LOG_ALL_CCS = False
 
-# Track names in the Live Set, in the order of B2..B6.
-PART_TRACKS = ("Drums", "Bass", "Part A", "Part B", "Part X")
+# Part tracks are not named here: they are the Set's audio tracks other than
+# Break and FX 1..5, in Set order (first 6 -> B2..B7). Break/FX are optional.
 PLAY_TRACK = "Play"      # needs Live's Pitch device for the octave buttons
 BREAK_TRACK = "Break"
 FX_TRACKS = ("FX 1", "FX 2", "FX 3", "FX 4", "FX 5")   # one per key, so FX overlap

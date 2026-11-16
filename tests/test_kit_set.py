@@ -15,7 +15,7 @@ def make_kit(tmp_path, files):
         for n in names:
             (tmp_path / folder / n).touch()
     return {"source": str(tmp_path), "tempo": 138, "section_pattern": PATTERN, "key": "G",
-            "parts": {"Drums": ["Drums"], "Part A": ["GA", "GB"]},
+            "parts": {"Drums": ["Drums"], "Guitars": ["GA", "GB"]},
             "break": {"folders": ["Lead"], "keep": ["Drums"]}, "fx": {"folders": ["Hits"]}}
 
 
@@ -34,13 +34,14 @@ def test_sections_and_rows(tmp_path):
     lay = layout(tmp_path)
     assert lay["sections"] == ["Section 1", "Section 2"]
     assert [c["row"] for c in lay["tracks"]["Drums"]] == [0, 13]
-    assert [c["row"] for c in lay["tracks"]["Part A"]] == [0, 1, 13]   # section 1: a-01 + b-01; section 2: a-02
+    assert lay["parts"] == ["Drums", "Guitars"]
+    assert [c["row"] for c in lay["tracks"]["Guitars"]] == [0, 1, 13]   # section 1: a-01 + b-01; section 2: a-02
 
 
 def test_loops_ordered_mellow_to_busy(tmp_path):
     busy = {"a-01.wav": (0.9, 9), "b-01.wav": (0.1, 1)}
     lay = layout(tmp_path, energy=lambda p: busy.get(p.name, (0, 0)))
-    assert [c["name"] for c in lay["tracks"]["Part A"][:2]] == ["b-01", "a-01"]
+    assert [c["name"] for c in lay["tracks"]["Guitars"][:2]] == ["b-01", "a-01"]
 
 
 def test_break_rows_and_names(tmp_path):

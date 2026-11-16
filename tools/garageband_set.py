@@ -39,9 +39,9 @@ END_PADDING = 449             # AAC padding after the audio (same encoder for th
 FX_TRACKS = tuple("FX %d" % (i + 1) for i in range(FX))   # one track per key: FX overlap
 KICK_RATIO = 0.35             # share of energy under 120 Hz that marks a full beat
 MAX_SHIFT = 5                 # semitones; GarageBand-style retune to the set key
-BREAK_KEEPS = "[Bass, Part A, Part B]"   # drums drop out during a transition
+BREAK_KEEPS = "[Bass, Synths, Music Beds]"   # drums drop out during a transition
 
-LOOP_TRACKS = ("Drums", "Bass", "Part A", "Part B", "Part X")
+LOOP_TRACKS = ("Beats", "Bass", "Synths", "Music Beds", "Toppers")   # = layout parts, B2..B6
 SECTION_NAMES = {
     3: ("Warm-up", "Groove", "Peak"),
     4: ("Warm-up", "Groove", "Drive", "Peak"),
@@ -79,8 +79,8 @@ def role(name: str, t: Dict[str, str], path: Path) -> str:
     if cat in (None, "Sound Effect"):
         return "Break"   # transitions, plus untagged risers and effects
     if cat == "Drums":
-        return "Drums" if kick_ratio(path) >= KICK_RATIO else "Part X"
-    return {"Bass": "Bass", "Keyboards": "Part A", "Mixed": "Part B"}.get(cat, "")
+        return "Beats" if kick_ratio(path) >= KICK_RATIO else "Toppers"
+    return {"Bass": "Bass", "Keyboards": "Synths", "Mixed": "Music Beds"}.get(cat, "")
 
 
 def shift_to(root: str, target: int) -> int:
@@ -126,7 +126,7 @@ def main(src: Path, pkgs: List[str]) -> int:
     names = SECTION_NAMES.get(sections) or tuple(f"Level {i + 1}" for i in range(sections))
 
     layout = {"tempo": TEMPO, "key": f"{key} minor", "rows_per_section": ROWS,
-              "sections": list(names), "tracks": {}, "left_out": {}}
+              "sections": list(names), "parts": list(LOOP_TRACKS), "tracks": {}, "left_out": {}}
     for r, pool in pools.items():
         need = sections * ROWS
         if pool[0]["root"]:   # tonal: least retuning first, then energy order

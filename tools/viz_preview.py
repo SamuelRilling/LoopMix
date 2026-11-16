@@ -32,13 +32,13 @@ def build_snapshot(layout: dict, section: int = 0, part: int = 0, mode: str = "l
         return [dict(key=k, kind=kind, label=label(clip(track(i), row_of(i))), playing=False)
                 for i, k in enumerate(offsets)]
 
-    part_track = config.PART_TRACKS[part]
+    part_track = layout["parts"][part]
     return dict(
         mode=mode, octave=0, section=section, tempo=round(float(layout["tempo"]), 2),
         is_playing=False, song_time=0.0, bar=4.0, phrase=False, phrase_beats=4.0, pending_start=None,
         sections=list(layout["sections"]),
         parts=[dict(name=n, selected=i == part, playing="", position=None, length=None, pending="")
-               for i, n in enumerate(config.PART_TRACKS)],
+               for i, n in enumerate(layout["parts"])],
         rows=rows,
         keys=keys(lambda i: part_track, LOOP_KEYS, "loop", lambda i: first + i)
         + keys(lambda i: config.BREAK_TRACK, BREAK_KEYS, "break", lambda i: first + i)
@@ -55,8 +55,8 @@ def main(argv) -> int:
     ap.add_argument("--mode", choices=("loop", "play"), default="loop")
     a = ap.parse_args(argv)
     layout = json.loads(Path(a.layout).read_text(encoding="utf-8"))
-    if not 0 <= a.section < len(layout["sections"]) or not 0 <= a.part < len(config.PART_TRACKS):
-        ap.error("section must be 0..%d and part 0..%d" % (len(layout["sections"]) - 1, len(config.PART_TRACKS) - 1))
+    if not 0 <= a.section < len(layout["sections"]) or not 0 <= a.part < len(layout["parts"]):
+        ap.error("section must be 0..%d and part 0..%d" % (len(layout["sections"]) - 1, len(layout["parts"]) - 1))
     viz = Viz(a.port)
     viz.state = build_snapshot(layout, a.section, a.part, a.mode)
     print("key map preview on http://127.0.0.1:%d  (Ctrl+C to stop)" % a.port, flush=True)

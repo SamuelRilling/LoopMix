@@ -6,6 +6,7 @@ from viz_preview import build_snapshot  # noqa: E402
 
 LAYOUT = {
     "tempo": 128.0, "key": "A minor", "rows_per_section": 13, "sections": ["Warm-up", "Peak"],
+    "parts": ["Drums", "Bass", "Strings"],
     "tracks": {
         "Drums": [dict(row=0, name="Kick A"), dict(row=13, name="Kick B"), dict(row=15, name="Kick C")],
         "Break": [dict(row=14, name="Riser [Bass, Part A]")],
@@ -19,7 +20,7 @@ def test_snapshot_fields_and_keys():
     assert {"mode", "octave", "section", "tempo", "is_playing", "song_time", "bar", "phrase", "phrase_beats",
             "pending_start", "sections", "parts", "rows", "keys"} <= set(s)
     assert s["section"] == 1 and s["tempo"] == 128.0 and s["is_playing"] is False
-    assert [p["selected"] for p in s["parts"]] == [True, False, False, False, False]
+    assert [(p["name"], p["selected"]) for p in s["parts"]] == [("Drums", True), ("Bass", False), ("Strings", False)]
     assert len(s["keys"]) == 23
     loops = [k for k in s["keys"] if k["kind"] == "loop"]
     assert [k["label"] for k in loops[:3]] == ["Kick B", "", "Kick C"]     # rows 13, 14, 15

@@ -7,9 +7,9 @@
  "parts": {
   "Drums": ["Drums"],
   "Bass": ["Bass"],
-  "Part A": ["Guitar A", "Guitar B"],
-  "Part B": ["Organ"],
-  "Part X": ["PhaseRhodes"]
+  "Guitars": ["Guitar A", "Guitar B"],
+  "Organ": ["Organ"],
+  "Rhodes": ["PhaseRhodes"]
  },
  "break": {"folders": ["Lead Guitar"], "keep": ["Drums"]},
  "fx": {"folders": ["Drum Hits"]}

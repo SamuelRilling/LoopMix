@@ -28,7 +28,7 @@ MAX_OCTAVE = 3
 
 class State(NamedTuple):
     mode: str = LOOP
-    part: int = 0     # index into config.PART_TRACKS
+    part: int = 0     # index into the Set's part tracks
     section: int = 0
     octave: int = 0   # Play mode octave
     phrase: bool = False  # phrase sync: loops start only on the phrase's first beat
@@ -53,6 +53,7 @@ class Layout(NamedTuple):
     base_note: int
     latch: bool
     rows_per_section: int
+    same_value_ccs: Tuple[int, ...] = ()   # buttons sending one value on every press
 
 
 NO_ACTIONS = ()  # type: Tuple[Action, ...]
@@ -68,19 +69,21 @@ def clamp(value: int, low: int, high: int) -> int:
 
 
 def on_cc(state: State, cc: int, value: int, layout: Layout,
-          section_count: int) -> Tuple[State, Tuple[Action, ...]]:
+          section_count: int, part_count: int) -> Tuple[State, Tuple[Action, ...]]:
     if cc in (layout.octave_up_cc, layout.octave_down_cc):
         return on_octave(state, 1 if cc == layout.octave_up_cc else -1, section_count)
     if cc == layout.phrase_cc:  # B8 sends the same value on every press
         phrase = not state.phrase
         return state._replace(phrase=phrase), (Action("phrase", flag=phrase),)
-    if not is_press(value, layout.latch):
+    if not is_press(value, layout.latch) and cc not in layout.same_value_ccs:
         return state, NO_ACTIONS
     if cc == layout.mode_cc:
         mode = PLAY if state.mode == LOOP else LOOP
         return state._replace(mode=mode), (Action("mode", part=state.part, mode=mode),)
     if cc in layout.part_ccs and state.mode == LOOP:
         part = layout.part_ccs.index(cc)
+        if part >= part_count:   # the Set has fewer parts than buttons
+            return state, NO_ACTIONS
         return state._replace(part=part), (Action("select", part=part),)
     return state, NO_ACTIONS
 
