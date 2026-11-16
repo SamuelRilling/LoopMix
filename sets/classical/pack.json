@@ -1,0 +1,20 @@
+{
+ "name": "Classical",
+ "packages": ["samples/_apple/MAContent10_AppleLoopsLegacySymphony.pkg"],
+ "parts": {
+  "Strings": [{"category": "Strings", "subcategory": [null, "Violin"]}],
+  "Low Strings": [{"category": "Strings", "subcategory": ["Viola", "Cello", "Double Bass"]}],
+  "Woodwinds": [{"category": "Horn/Wind", "subcategory": ["Flute", "Clarinet", "Oboe", "Bassoon", "Piccolo", "English Horn"]}],
+  "Brass": [{"category": "Horn/Wind", "subcategory": ["French Horn", "Trumpet", "Trombone", "Tuba", null]}],
+  "Harp": [{"category": "Strings", "subcategory": "Harp"}]
+ },
+ "break": {"match": [{"descriptors": ["Fill"], "category": ["Strings", "Horn/Wind"]}], "keep": ["Low Strings", "Harp"]},
+ "fx": {"match": [{"category": "Mallets", "subcategory": "Timpani"},
+                  {"category": "Drums", "subcategory": ["Cymbal", "Tom", "Kick"]},
+                  {"category": ["Mallets", "Percussion"], "subcategory": ["Bell", "Chime", "Xylophone"]}]},
+ "tempo": "auto",
+ "tempo_window": 0.2,
+ "scale": "auto",
+ "key": "auto",
+ "sections": ["Prelude", "Theme", "Development", "Finale", "Coda"]
+}

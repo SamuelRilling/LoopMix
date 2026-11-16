@@ -7,7 +7,7 @@ DOCS = "\n".join(p.read_text(encoding="utf-8") for p in [ROOT / "README.md", *(R
                                                          *(ROOT / "prompts").glob("*.md")])
 CONTROLS = ["B1", "B2", "B3", "B4", "B5", "B6", "B7", "B8", "Octave", "White keys", "black keys", "Top C", "Bottom C",
             "CC 20", "CC 21", "Loop mode", "Play mode"]
-PROMPTS = ["garageband-set.md", "kit-set.md", "build-in-live.md", "key-map-viz.md"]
+PROMPTS = ["make-a-set.md", "garageband-set.md", "kit-set.md", "build-in-live.md", "key-map-viz.md"]
 DOC_FILES = ["setup.md", "controls.md", "architecture.md", "building-sets.md", "troubleshooting.md"]
 
 

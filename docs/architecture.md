@@ -44,8 +44,8 @@ carries on. Details: [prompts/key-map-viz.md](../prompts/key-map-viz.md).
 
 ## Tools data flow
 ```
-GarageBand WAVs + Apple .pkg  --garageband_set.py-->  sets/electro-house/layout.json + samples/staged/Electro House/
-song kit WAVs + kit.json      --kit_set.py---------->  sets/<kit>/layout.json         + samples/staged/<kit>/
+Apple .pkg + pack.json   --garageband_set.py-->  sets/<kit>/layout.json + samples/staged/<name>/
+song kit WAVs + kit.json --kit_set.py---------->  sets/<kit>/layout.json + samples/staged/<kit>/
 layout.json + templates/base.als --als_writer.py-->  <name>.als      layout.json --viz_preview.py--> key map page (no Live)
 ```
 Shared: `audio.py` (loudness/onset energy, rank, spread), `render_loops.py` (offline retune/re-tempo), `apple_loops.py`

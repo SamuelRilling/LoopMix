@@ -3,28 +3,54 @@
 Live 11's API can't import audio, so a set is built offline: source loops → `sets/<kit>/layout.json` (+ staged WAVs under
 `settings.STAGED`) → a generated `.als`. Samples and `.als` files are git-ignored; `layout.json` is the tracked source of truth.
 
-## Pipeline 1: GarageBand pack — `tools/garageband_set.py`
+## Pipeline 1: GarageBand pack — `tools/garageband_set.py` + `pack.json`
 ```
-python tools/garageband_set.py [--out <dir>] [--staged <dir>] <Apple .pkg> [<Apple .pkg> ...]
+python tools/garageband_set.py sets/<kit>/pack.json [--staged <dir>]
 ```
-Only the `.pkg` files are needed. Output: `sets/electro-house/layout.json` and `<STAGED>/Electro House/<track>/` (`--out`/`--staged`
-redirect, e.g. to temp paths). Tempo is fixed at 128 (`TEMPO`).
-- **Audio** is decoded from the packages: each `.caf` is extracted from the payload and decoded by ffmpeg to 16-bit 44.1 kHz WAV in
-  `<STAGED>/../decoded/` (cache, outside git). ffmpeg already drops the AAC priming and trailing padding (checked: *Alpha Male Bass*
-  decodes to 165375 frames = `valid frames`), so decoded files start on the beat and layouts use `priming` 0.
-- **Tags** come from Apple's `.pkg` (`apple_loops.py` reads the xar → cpio → `.caf` `uuid` chunk): category, subcategory,
-  key signature, key type, beat count, descriptors, plus `valid frames` (the decoded length). Loops without a category
-  borrow a numbered sibling's tags.
-- **Roles** (track names = GarageBand categories): Drums → `Beats` if ≥ 35% of the energy (30–120 Hz vs > 30 Hz) is
-  kick, otherwise `Toppers`; Bass → `Bass`, Keyboards → `Synths`, Mixed → `Music Beds`. Parts in order: Beats, Bass, Synths,
-  Music Beds, Toppers (B2–B6; `drum_parts` = Beats, Toppers); Sound Effect / "Impacts & Crashes" → FX; other Sound Effects and untagged → Break.
-- **Filter:** arrhythmic loops are dropped from the five parts; the set is minor, so major-only loops go; the most common root
-  becomes the key (`<root> minor`); loops needing more than 5 semitones of retune go.
-- **Sections:** `min(pool sizes) // 13` full sections, each part exactly 13 loops per section, ordered Warm-up → Peak by
-  energy (mean rank of loudness and onset rate, ±0.25 for the Intense/Relaxed tag). Tonal parts pick the least retuned loops
-  first. 3–5 sections get names (Warm-up, Groove, [Lift,] Drive, Peak), otherwise `Level n`.
-- **Breaks:** 5 per section, `[Bass, Synths, Music Beds]` kept (drums drop out). **FX:** key *k* of every section on track `FX k`.
-- Needs `ffmpeg` (Rubber Band) for loops that must be retuned or re-tempoed; the rest are copied.
+One `pack.json` per set (committed) says which Apple packages to use and which GarageBand loops go to which track. Output:
+`sets/<kit>/layout.json` next to it, audio staged in `<STAGED>/<name>/<track>/`. Worked examples: `sets/classical/pack.json`
+(orchestra: Strings, Low Strings, Woodwinds, Brass, Harp; timpani and cymbals as FX; orchestral "Fill" phrases as breaks) and
+`sets/electro-house/pack.json` (Beats, Bass, Synths, Music Beds, Toppers).
+
+| Field | Meaning |
+|---|---|
+| `name` | Set name; also the staged folder name. |
+| `packages` | Apple `.pkg` files (repo-relative or absolute). They hold the audio (`.caf`) and the tags; nothing else is needed. |
+| `parts` | 1–6 tracks, in button order (B2–B7). Each maps to a list of rules. |
+| `drum_parts` | Parts never retuned and kept in Beats warp mode (drum loops have no key). |
+| `break` | Optional `{"match": [rules], "keep": [part names]}`: one-shots that play once while the other parts pause. |
+| `fx` | Optional `{"match": [rules]}`: instant one-shots on top (`FX 1`–`FX 5`). |
+| `tempo` | `"auto"` or BPM. |
+| `tempo_window` | Leave out loops whose own tempo is more than this fraction off the set tempo (0.1 = 10 %). |
+| `scale` | `"auto"`, `"minor"` or `"major"`; loops of the other scale are left out (like GarageBand's scale filter). |
+| `key` | `"auto"` (most common root) or a note; loops are retuned to it. |
+| `max_shift` | Leave out loops needing a bigger retune (default 5 semitones). |
+| `sections` | Optional section names; the count comes from the pools. |
+
+**Rules** select loops by GarageBand's own tags: `{"category": …, "subcategory": …, "descriptors": […], "not_descriptors": […],
+"name": […], "kick": true|false}`. Every given field must match; `category`/`subcategory` take a value, a list, or `null`
+(= untagged); `name` = substrings of the loop name; `kick` splits drum loops by sound (≥ 35 % of the energy at 30–120 Hz), since
+GarageBand files beats and toppers alike. A loop goes to the first part whose rules match (a kick rule that the audio contradicts
+falls through to the next match), else Break, else FX. Parts skip loops tagged *Arrhythmic* or *Fill* unless a rule asks for them —
+GarageBand marks one-off phrases as *Fill*, which makes them natural breaks.
+
+**Auto tempo and scale** try every loop tempo found in the parts and both scales, and keep the choice that gives every part the most
+full sections (then the most loops). Example: the Symphony package's most common tempo is 100, but only 75–136 BPM spread with a 20 %
+window and D major gives all five orchestral parts 39+ loops (3 sections).
+
+How the build works:
+- **Tags** come from the `.pkg` (`apple_loops.read_tags`: xar → cpio → `.caf` `uuid` chunk): category, subcategory, key signature,
+  key type, beat count, descriptors, plus `valid frames`. Untagged loops borrow a numbered sibling's tags.
+- **Audio** is decoded only for loops the set can use (`apple_loops.decode_packages(..., names=…)`), by ffmpeg to 16-bit 44.1 kHz WAV
+  in `<STAGED>/../decoded/<package>/` (cache, outside git). ffmpeg drops the AAC padding, so decoded files start on the beat (`priming` 0).
+- **Sections:** `min(pool sizes) // 13` full sections, each part exactly 13 loops per section, ordered by energy (mean rank of loudness
+  and onset rate, ±0.25 for the Intense/Relaxed tag). Tonal parts take the least retuned and least stretched loops first. Too few loops
+  for one section stops the build and names the part.
+- **Rendering:** loops that need a new key or tempo, and one-shots that need a new key, are rendered offline (Rubber Band); the Set
+  plays every clip unstretched and unshifted. Needs ffmpeg with the `rubberband` filter.
+
+`sets/electro-house/layout.json` predates `pack.json`: it was built from a 504-loop WAV export (4 sections). Rebuilding from
+`pack.json` uses Apple's full packages (971 loops, 5 sections) and would replace the set you know; write elsewhere first if unsure.
 
 Licence: GarageBand's loops are licensed to owners of Apple devices (the user owns them). The `.pkg` files come from
 `audiocontentdownload.apple.com`; nothing from Apple is stored in the repo.
@@ -33,16 +59,17 @@ Licence: GarageBand's loops are licensed to owners of Apple devices (the user ow
 Apple publishes a content index per app version at `https://audiocontentdownload.apple.com/lp10_ms3_content_2016/`:
 `garageband1047.plist` (GarageBand 10.4.7, ~4 MB, verified) and `logicpro1050.plist` exist; other version numbers 404. It is a binary plist:
 `Packages` maps package name → `DownloadName`, `DownloadSize` (bytes), `FileCheck` (a file inside, whose folder names the style) and
-`ContainsAppleLoops`. The package URL is the same folder + `DownloadName`, e.g. `…/MAContent10_AssetPack_0315_AppleLoopsElectroHouse1.pkg`
-(a `HEAD` request shows the size without downloading).
+`ContainsAppleLoops`. The package URL is the same folder + `DownloadName` (which can be a relative path, e.g. into the 2013 folder),
+e.g. `…/MAContent10_AssetPack_0315_AppleLoopsElectroHouse1.pkg` (a `HEAD` request shows the size without downloading).
 ```
 python -c "import plistlib,sys;[print(v['DownloadName'],v['DownloadSize']//2**20,'MB',v['FileCheck']) for v in plistlib.load(open(sys.argv[1],'rb'))['Packages'].values() if v.get('ContainsAppleLoops')]" garageband1047.plist
 ```
-Orchestral material: `MAContent10_AssetPack_0329_AppleLoopsJamPackOrchestra` is only 39 loops (8 MB, mixed keys/tempos). The full orchestra
-(2203 loops: violin, viola, cello, bass, harp, winds, brass, timpani, piano...) is `../lp10_ms3_content_2013/MAContent10_AppleLoopsLegacySymphony.pkg`
-(655 MB; the plist `DownloadName` is a relative path into the 2013 folder; `FileCheck` can be a list). `tools/garageband_set.py` hard-codes the
-electro-house roles/tempo/names, so an orchestra needs its roles remapped (`sets/classical/` was built by overriding `role`, `LOOP_TRACKS`,
-`DRUM_PARTS`, `BREAK_KEEPS` from a driver script; a proper `--style` option is a tools change).
+To see what a package holds before writing rules (categories, subcategories, tempos, scales):
+```
+python -c "import sys,collections;sys.path.insert(0,'tools');from apple_loops import read_tags;t=read_tags(sys.argv[1:]);print(collections.Counter((v.get('category'),v.get('subcategory')) for v in t.values()).most_common(40))" <pkg>
+```
+Orchestral material: `MAContent10_AssetPack_0329_AppleLoopsJamPackOrchestra` is only 39 loops. The full orchestra (2203 loops: violin,
+viola, cello, bass, harp, winds, brass, timpani, piano, organ, harpsichord…) is `../lp10_ms3_content_2013/MAContent10_AppleLoopsLegacySymphony.pkg` (655 MB).
 
 ## Pipeline 2: song kit — `tools/kit_set.py`
 ```

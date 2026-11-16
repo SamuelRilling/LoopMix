@@ -1,0 +1,21 @@
+{
+ "name": "Electro House",
+ "packages": ["samples/_apple/MAContent10_AssetPack_0315_AppleLoopsElectroHouse1.pkg",
+              "samples/_apple/MAContent10_AssetPack_0550_AppleLoopsElectroHouse2.pkg"],
+ "parts": {
+  "Beats": [{"category": "Drums", "kick": true}],
+  "Bass": [{"category": "Bass"}],
+  "Synths": [{"category": "Keyboards"}],
+  "Music Beds": [{"category": "Mixed"}],
+  "Toppers": [{"category": "Drums", "kick": false}]
+ },
+ "drum_parts": ["Beats", "Toppers"],
+ "break": {"match": [{"category": "Sound Effect", "subcategory": "Motions & Transitions"}, {"category": null}],
+           "keep": ["Bass", "Synths", "Music Beds"]},
+ "fx": {"match": [{"category": "Sound Effect", "subcategory": "Impacts & Crashes"}]},
+ "tempo": 128,
+ "tempo_window": 0.07,
+ "scale": "minor",
+ "key": "auto",
+ "sections": ["Warm-up", "Groove", "Lift", "Drive", "Peak"]
+}

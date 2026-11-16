@@ -7,7 +7,9 @@
 2026-11-16 · dynamic-parts · opus · per-set parts (≤6, B2–B7), Prototype template, no empty tracks, EH category names; 41 tests; 3 sets regenerated · merged · ctx n/a
 2026-11-16 · metadata-first · sonnet · pkg-only GarageBand, ACID/smpl, drum_parts, prompts; 51 tests; equality gate failed on a wrong premise (504-loop WAV subset vs 971 in pkgs), EH layout kept · merged · ctx n/a
 2026-11-16 · classical-retest · sonnet · Symphony pkg → 5 instrument parts, 225 clips, 0 missing; found garageband_set electro hard-coding (needed driver) · merged · ctx n/a
+2026-11-16 · pack-config (overseer, in place per user) · opus · pack.json for GarageBand sets, auto tempo/scale = most full sections, lazy decode, one-shot retune rendered, kick fall-through; classical rebuilt (D major 100 BPM, 3 sections, 225 clips, 0 live processing); make-a-set.md entry prompt; 56 tests · main · ctx n/a
 ## Tips
+- Auto choices should maximise what the player gets (full sections), not follow a majority vote.
 - Check .als sample paths with an XML parser, not regex: names with & are escaped.
 - "Same as before" gates need the premise measured first (pool size), not assumed.
 - Workflow tests by a fresh agent find real prompt gaps (URL discovery, JSON escaping, stopping servers); worth one per new pipeline.

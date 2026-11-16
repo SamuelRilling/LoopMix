@@ -78,24 +78,35 @@ def _loop_tags(caf: bytes) -> Dict[str, str]:
     return tags
 
 
-def decode_packages(pkgs, dst: Path) -> Dict[str, Tuple[Path, Dict[str, str]]]:
-    """Loop name -> (decoded WAV in `dst`, GarageBand tags); decodes only what is missing."""
+def read_tags(pkgs) -> Dict[str, Dict[str, str]]:
+    """Loop name -> GarageBand tags, for every loop in the packages (no decoding)."""
+    return {Path(name).stem: _loop_tags(data)
+            for pkg in pkgs for name, data in _cpio(_payload(Path(pkg))) if name.endswith(".caf")}
+
+
+def decode_packages(pkgs, dst: Path, names=None) -> Dict[str, Path]:
+    """Loop name -> WAV decoded into `dst/<package>/`, for `names` only (all if None).
+
+    Already decoded files are reused, so re-running a build costs nothing.
+    """
     ffmpeg = shutil.which("ffmpeg")
     if ffmpeg is None:
         raise RuntimeError("ffmpeg is needed to decode Apple's .caf loops")
-    dst.mkdir(parents=True, exist_ok=True)
-    loops = {}
+    wanted = None if names is None else set(names)
+    wavs = {}
     with tempfile.TemporaryDirectory() as tmp:
         for pkg in pkgs:
+            folder = dst / Path(pkg).stem
+            folder.mkdir(parents=True, exist_ok=True)
             for name, data in _cpio(_payload(Path(pkg))):
-                if not name.endswith(".caf"):
-                    continue
                 stem = Path(name).stem
-                wav = dst / (stem + ".wav")
+                if not name.endswith(".caf") or (wanted is not None and stem not in wanted):
+                    continue
+                wav = folder / (stem + ".wav")
                 if not wav.exists():
                     caf = Path(tmp) / "in.caf"
                     caf.write_bytes(data)
                     subprocess.run([ffmpeg, "-v", "error", "-y", "-i", str(caf), "-ar", "44100",
                                     "-c:a", "pcm_s16le", str(wav)], check=True)
-                loops[stem] = (wav, _loop_tags(data))
-    return loops
+                wavs[stem] = wav
+    return wavs
