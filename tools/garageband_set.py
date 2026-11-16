@@ -22,7 +22,7 @@ from typing import Dict, List
 import numpy as np
 
 from apple_loops import read_packages
-from rank_energy import features, rank, read_mono, spread
+from audio import features, rank, read_mono, spread
 from render_loops import render
 
 ROOT = Path(__file__).resolve().parent.parent

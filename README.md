@@ -28,7 +28,7 @@ tools/
   apple_loops.py      reads GarageBand's loop tags from Apple's .pkg content packages
   garageband_set.py   GarageBand pack -> sets/<kit>/layout.json + staged WAVs
   als_writer.py       layout.json + a working Set as template -> generated .als
-  rank_energy.py      shared audio analysis (loudness, busyness)
+  audio.py            shared audio analysis (loudness, busyness)
 samples/staged/       linked into the User Library as Samples/LoopMix
 sets/electro-house/   layout.json + Electro House.als
 ```
