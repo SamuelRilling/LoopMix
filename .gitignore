@@ -1,0 +1,14 @@
+# Audio: downloaded packs, Apple content packages, staged/rendered loops (~1 GB)
+samples/
+
+# Generated Live Sets (rebuild from sets/<kit>/layout.json with tools/als_writer.py)
+*.als
+Backup/
+
+# Python / tooling caches
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Live project folders created when saving a set
+sets/**/*Project/
