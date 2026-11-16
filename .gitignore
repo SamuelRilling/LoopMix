@@ -15,3 +15,6 @@ sets/**/*Project/
 
 # Tracked Set template for als_writer
 !templates/*.als
+
+# Static set overview from tools/set_map.py
+sets/*/set-map.html
