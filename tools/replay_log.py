@@ -3,16 +3,16 @@
 Usage: python tools/replay_log.py [sets/<kit>/layout.json]
 """
 import json
-import os
 import re
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from LoopMix import config  # noqa: E402
+from tools import settings  # noqa: E402
 from LoopMix.logic import Layout, State, on_cc, on_note  # noqa: E402
 
-LOG = Path(os.environ["APPDATA"]) / "Ableton" / "Live 11.0" / "Preferences" / "Log.txt"
+LOG = settings.LIVE_LOG
 LAYOUT = Layout(config.MODE_CC, tuple(config.PART_CCS), config.OCTAVE_UP_CC, config.OCTAVE_DOWN_CC,
                 config.PHRASE_CC, config.BASE_NOTE, config.BUTTONS_LATCH, config.ROWS_PER_SECTION)
 

@@ -1,11 +1,11 @@
-"""Write a LoopMix Live Set from a layout.json, using a working Set as template.
+"""Write a LoopMix Live Set from a layout.json, using a template Set (templates/base.als).
 
 Live 11 can't import audio through its API, so the Set file is generated.
 A .als is gzip'd XML. From the template we reuse one audio clip, one scene and
 every track; we rebuild the scenes and clip slots, clone the Break track into
 an FX track, and set the tempo. Clips start after each file's AAC padding.
 
-Usage:  python tools/als_writer.py <template.als> <layout.json> <out.als>
+Usage:  python tools/als_writer.py <templates/base.als> <layout.json> <out.als>
 """
 import gzip
 import itertools
@@ -16,9 +16,11 @@ import sys
 import wave
 from pathlib import Path
 
+import settings
+
 RATE = 44100
-LIBRARY_ROOT = "D:/Documentos/Ableton/User Library/"
-CORE = "D:/Software/Ableton/Resources/Core Library/Devices/"
+LIBRARY_ROOT = settings.USER_LIBRARY
+CORE = settings.CORE_DEVICES
 PITCH_PRESET = CORE + "MIDI Effects/Pitch/+ 12.adv"
 PLAY_PRESET = CORE + "Instruments/Wavetable/Synth Lead/Bright SAW Lead.adv"
 SECTION_COLORS = (26, 6, 2, 14, 18, 10)    # Live palette indexes, one per section
