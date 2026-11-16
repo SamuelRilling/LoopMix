@@ -8,8 +8,15 @@
   "Drive",
   "Peak"
  ],
+ "parts": [
+  "Beats",
+  "Bass",
+  "Synths",
+  "Music Beds",
+  "Toppers"
+ ],
  "tracks": {
-  "Drums": [
+  "Beats": [
    {
     "row": 0,
     "name": "Lockstep Beat 02",
@@ -24,7 +31,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 0,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Lockstep Beat 02 (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Lockstep Beat 02 (C 128).wav"
    },
    {
     "row": 1,
@@ -40,7 +47,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 0,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Hard Knocks Topper (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Hard Knocks Topper (C 128).wav"
    },
    {
     "row": 2,
@@ -56,7 +63,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 0,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Smash Hit Beat (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Smash Hit Beat (C 128).wav"
    },
    {
     "row": 3,
@@ -71,7 +78,7 @@
     "energy": -0.041,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Clap Clap Beat 01.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Clap Clap Beat 01.wav"
    },
    {
     "row": 4,
@@ -86,7 +93,7 @@
     "energy": -0.032,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Rocket Fuel Beat 03.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Rocket Fuel Beat 03.wav"
    },
    {
     "row": 5,
@@ -101,7 +108,7 @@
     "energy": -0.005,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Rocket Fuel Beat 02.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Rocket Fuel Beat 02.wav"
    },
    {
     "row": 6,
@@ -117,7 +124,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 0,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Foreign Exchange Topper (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Foreign Exchange Topper (C 128).wav"
    },
    {
     "row": 7,
@@ -132,7 +139,7 @@
     "energy": 0.077,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Marathon Train Beat 01.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Marathon Train Beat 01.wav"
    },
    {
     "row": 8,
@@ -147,7 +154,7 @@
     "energy": 0.086,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Blueprint Beat 02.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Blueprint Beat 02.wav"
    },
    {
     "row": 9,
@@ -163,7 +170,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 0,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Lockstep Beat 01 (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Lockstep Beat 01 (C 128).wav"
    },
    {
     "row": 10,
@@ -178,7 +185,7 @@
     "energy": 0.086,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Rocket Fuel Beat 01.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Rocket Fuel Beat 01.wav"
    },
    {
     "row": 11,
@@ -193,7 +200,7 @@
     "energy": 0.105,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Clap Clap Beat 02.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Clap Clap Beat 02.wav"
    },
    {
     "row": 12,
@@ -208,7 +215,7 @@
     "energy": 0.123,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Mad Hatter Beat 01.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Mad Hatter Beat 01.wav"
    },
    {
     "row": 13,
@@ -223,7 +230,7 @@
     "energy": 0.123,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Mad Hatter Beat 03.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Mad Hatter Beat 03.wav"
    },
    {
     "row": 14,
@@ -238,7 +245,7 @@
     "energy": 0.159,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Viper Bite Beat 01.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Viper Bite Beat 01.wav"
    },
    {
     "row": 15,
@@ -253,7 +260,7 @@
     "energy": 0.168,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Viper Bite Beat 02.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Viper Bite Beat 02.wav"
    },
    {
     "row": 16,
@@ -268,7 +275,7 @@
     "energy": 0.195,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Downtown Hook Beat 02.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Downtown Hook Beat 02.wav"
    },
    {
     "row": 17,
@@ -283,7 +290,7 @@
     "energy": 0.35,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Basic Core Beat.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Basic Core Beat.wav"
    },
    {
     "row": 18,
@@ -299,7 +306,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 0,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Zoot Swing Beat (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Zoot Swing Beat (C 128).wav"
    },
    {
     "row": 19,
@@ -315,7 +322,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 0,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Complete Package Beat (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Complete Package Beat (C 128).wav"
    },
    {
     "row": 20,
@@ -330,7 +337,7 @@
     "energy": 0.45,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Blueprint Beat 01.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Blueprint Beat 01.wav"
    },
    {
     "row": 21,
@@ -345,7 +352,7 @@
     "energy": 0.477,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Blueprint Beat 03.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Blueprint Beat 03.wav"
    },
    {
     "row": 22,
@@ -360,7 +367,7 @@
     "energy": 0.477,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Disco Core Beat.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Disco Core Beat.wav"
    },
    {
     "row": 23,
@@ -375,7 +382,7 @@
     "energy": 0.523,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Downtown Hook Beat 01.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Downtown Hook Beat 01.wav"
    },
    {
     "row": 24,
@@ -390,7 +397,7 @@
     "energy": 0.523,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Tribal Hat Topper.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Tribal Hat Topper.wav"
    },
    {
     "row": 25,
@@ -405,7 +412,7 @@
     "energy": 0.532,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Deep Cycles Beat.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Deep Cycles Beat.wav"
    },
    {
     "row": 26,
@@ -421,7 +428,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 0,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Tom Club Beat 01 (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Tom Club Beat 01 (C 128).wav"
    },
    {
     "row": 27,
@@ -437,7 +444,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 0,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Submersible Craft Beat (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Submersible Craft Beat (C 128).wav"
    },
    {
     "row": 28,
@@ -452,7 +459,7 @@
     "energy": 0.577,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Chronograph Set Beat 01.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Chronograph Set Beat 01.wav"
    },
    {
     "row": 29,
@@ -467,7 +474,7 @@
     "energy": 0.577,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Honking Snare Roll Topper.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Honking Snare Roll Topper.wav"
    },
    {
     "row": 30,
@@ -482,7 +489,7 @@
     "energy": 0.586,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Sizzle Cymbal Beat.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Sizzle Cymbal Beat.wav"
    },
    {
     "row": 31,
@@ -497,7 +504,7 @@
     "energy": 0.605,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Sweeper Beat.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Sweeper Beat.wav"
    },
    {
     "row": 32,
@@ -512,7 +519,7 @@
     "energy": 0.695,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Four Four Beat.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Four Four Beat.wav"
    },
    {
     "row": 33,
@@ -527,7 +534,7 @@
     "energy": 0.714,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Simple Clap Beat.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Simple Clap Beat.wav"
    },
    {
     "row": 34,
@@ -542,7 +549,7 @@
     "energy": 0.741,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Deep Shuffle Beat.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Deep Shuffle Beat.wav"
    },
    {
     "row": 35,
@@ -557,7 +564,7 @@
     "energy": 0.741,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Tribal Core Beat.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Tribal Core Beat.wav"
    },
    {
     "row": 36,
@@ -572,7 +579,7 @@
     "energy": 0.75,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Cow Bell Topper.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Cow Bell Topper.wav"
    },
    {
     "row": 37,
@@ -587,7 +594,7 @@
     "energy": 0.75,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Sweep Shuffle Topper.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Sweep Shuffle Topper.wav"
    },
    {
     "row": 38,
@@ -602,7 +609,7 @@
     "energy": 0.777,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Deep Intensity Beat.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Deep Intensity Beat.wav"
    },
    {
     "row": 39,
@@ -617,7 +624,7 @@
     "energy": 0.786,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Small Shaker Beat.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Small Shaker Beat.wav"
    },
    {
     "row": 40,
@@ -632,7 +639,7 @@
     "energy": 0.786,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Tight Kick Beat.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Tight Kick Beat.wav"
    },
    {
     "row": 41,
@@ -647,7 +654,7 @@
     "energy": 0.814,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Heavy Kicker Beat.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Heavy Kicker Beat.wav"
    },
    {
     "row": 42,
@@ -662,7 +669,7 @@
     "energy": 0.877,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Progressive Beat.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Progressive Beat.wav"
    },
    {
     "row": 43,
@@ -677,7 +684,7 @@
     "energy": 0.923,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Heavy Shuffle Beat.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Heavy Shuffle Beat.wav"
    },
    {
     "row": 44,
@@ -692,7 +699,7 @@
     "energy": 0.95,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Jump Up Beat.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Jump Up Beat.wav"
    },
    {
     "row": 45,
@@ -707,7 +714,7 @@
     "energy": 0.995,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Neo Tribal Beat.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Neo Tribal Beat.wav"
    },
    {
     "row": 46,
@@ -722,7 +729,7 @@
     "energy": 1.005,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Laid Back Beat.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Laid Back Beat.wav"
    },
    {
     "row": 47,
@@ -737,7 +744,7 @@
     "energy": 1.032,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Fast Hat Beat.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Fast Hat Beat.wav"
    },
    {
     "row": 48,
@@ -752,7 +759,7 @@
     "energy": 1.095,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Tribal Tech Beat.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Tribal Tech Beat.wav"
    },
    {
     "row": 49,
@@ -767,7 +774,7 @@
     "energy": 1.114,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Titanic Snare Beat.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Titanic Snare Beat.wav"
    },
    {
     "row": 50,
@@ -782,7 +789,7 @@
     "energy": 1.15,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Sharp Kick beat.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Sharp Kick beat.wav"
    },
    {
     "row": 51,
@@ -797,7 +804,7 @@
     "energy": 1.186,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Drums/Shuffle Up Beat.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Beats/Shuffle Up Beat.wav"
    }
   ],
   "Bass": [
@@ -1610,7 +1617,7 @@
     "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Bass/Super Anthem Bass.wav"
    }
   ],
-  "Part A": [
+  "Synths": [
    {
     "row": 0,
     "name": "Airy Vox Synth",
@@ -1624,7 +1631,7 @@
     "energy": -0.047,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Airy Vox Synth.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Airy Vox Synth.wav"
    },
    {
     "row": 1,
@@ -1639,7 +1646,7 @@
     "energy": -0.028,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Plethora Synth Layers.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Plethora Synth Layers.wav"
    },
    {
     "row": 2,
@@ -1654,7 +1661,7 @@
     "energy": 0.033,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Bedlam Synth Layers.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Bedlam Synth Layers.wav"
    },
    {
     "row": 3,
@@ -1669,7 +1676,7 @@
     "energy": 0.123,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Data Strum Synth Layers.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Data Strum Synth Layers.wav"
    },
    {
     "row": 4,
@@ -1684,7 +1691,7 @@
     "energy": 0.127,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Chill Out Synth Layers.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Chill Out Synth Layers.wav"
    },
    {
     "row": 5,
@@ -1699,7 +1706,7 @@
     "energy": 0.16,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Chill Echo Synth Layers.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Chill Echo Synth Layers.wav"
    },
    {
     "row": 6,
@@ -1714,7 +1721,7 @@
     "energy": 0.17,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Breaking Up Synth Chords.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Breaking Up Synth Chords.wav"
    },
    {
     "row": 7,
@@ -1729,7 +1736,7 @@
     "energy": 0.193,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Organically Synth Layers.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Organically Synth Layers.wav"
    },
    {
     "row": 8,
@@ -1744,7 +1751,7 @@
     "energy": 0.217,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Icy Fauna Synth Layers.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Icy Fauna Synth Layers.wav"
    },
    {
     "row": 9,
@@ -1759,7 +1766,7 @@
     "energy": 0.274,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Pure Love Synth Layers.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Pure Love Synth Layers.wav"
    },
    {
     "row": 10,
@@ -1774,7 +1781,7 @@
     "energy": 0.274,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Sudden Phaser Layers.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Sudden Phaser Layers.wav"
    },
    {
     "row": 11,
@@ -1789,7 +1796,7 @@
     "energy": 0.297,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Night Vision Synth Layers.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Night Vision Synth Layers.wav"
    },
    {
     "row": 12,
@@ -1804,7 +1811,7 @@
     "energy": 0.335,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Pulse Joy Synth Layers.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Pulse Joy Synth Layers.wav"
    },
    {
     "row": 13,
@@ -1820,7 +1827,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 0,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Anthem Fever Synth (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Anthem Fever Synth (C 128).wav"
    },
    {
     "row": 14,
@@ -1835,7 +1842,7 @@
     "energy": 0.354,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Flip Bit Synth Layers.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Flip Bit Synth Layers.wav"
    },
    {
     "row": 15,
@@ -1850,7 +1857,7 @@
     "energy": 0.363,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Rave Wave Synth Layers.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Rave Wave Synth Layers.wav"
    },
    {
     "row": 16,
@@ -1865,7 +1872,7 @@
     "energy": 0.368,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Homeland Synth Layers.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Homeland Synth Layers.wav"
    },
    {
     "row": 17,
@@ -1881,7 +1888,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 0,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Fast Gated Synth (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Fast Gated Synth (C 128).wav"
    },
    {
     "row": 18,
@@ -1896,7 +1903,7 @@
     "energy": 0.392,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Pitch Dive Melody.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Pitch Dive Melody.wav"
    },
    {
     "row": 19,
@@ -1912,7 +1919,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 0,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Pikes Peak Synth (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Pikes Peak Synth (C 128).wav"
    },
    {
     "row": 20,
@@ -1928,7 +1935,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 0,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Lucky Charm Synth (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Lucky Charm Synth (C 128).wav"
    },
    {
     "row": 21,
@@ -1943,7 +1950,7 @@
     "energy": 0.429,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Pure Candy Synth Layers.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Pure Candy Synth Layers.wav"
    },
    {
     "row": 22,
@@ -1959,7 +1966,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 0,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Sunbeam Synth (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Sunbeam Synth (C 128).wav"
    },
    {
     "row": 23,
@@ -1975,7 +1982,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 0,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Transport Stop Synth (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Transport Stop Synth (C 128).wav"
    },
    {
     "row": 24,
@@ -1990,7 +1997,7 @@
     "energy": 0.467,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Gold Disc Synth Layers.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Gold Disc Synth Layers.wav"
    },
    {
     "row": 25,
@@ -2006,7 +2013,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 0,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Aftershock Synth Lead (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Aftershock Synth Lead (C 128).wav"
    },
    {
     "row": 26,
@@ -2021,7 +2028,7 @@
     "energy": 0.505,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Mirror Ball Synth.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Mirror Ball Synth.wav"
    },
    {
     "row": 27,
@@ -2036,7 +2043,7 @@
     "energy": 0.538,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Pitch Part Synth Layers.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Pitch Part Synth Layers.wav"
    },
    {
     "row": 28,
@@ -2052,7 +2059,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 0,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Layered Organ Synth (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Layered Organ Synth (C 128).wav"
    },
    {
     "row": 29,
@@ -2067,7 +2074,7 @@
     "energy": 0.566,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Robot Chat Synth Layers.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Robot Chat Synth Layers.wav"
    },
    {
     "row": 30,
@@ -2083,7 +2090,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 0,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Plucky Chime Synth (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Plucky Chime Synth (C 128).wav"
    },
    {
     "row": 31,
@@ -2098,7 +2105,7 @@
     "energy": 0.58,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Mellow Out Synth Layers.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Mellow Out Synth Layers.wav"
    },
    {
     "row": 32,
@@ -2113,7 +2120,7 @@
     "energy": 0.594,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Luminosity Synth Layers.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Luminosity Synth Layers.wav"
    },
    {
     "row": 33,
@@ -2128,7 +2135,7 @@
     "energy": 0.604,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Uplift Synth Layers.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Uplift Synth Layers.wav"
    },
    {
     "row": 34,
@@ -2143,7 +2150,7 @@
     "energy": 0.618,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Progressive Techno Synth.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Progressive Techno Synth.wav"
    },
    {
     "row": 35,
@@ -2158,7 +2165,7 @@
     "energy": 0.66,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Spike Riff Synth Layers.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Spike Riff Synth Layers.wav"
    },
    {
     "row": 36,
@@ -2173,7 +2180,7 @@
     "energy": 0.67,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Vox Rider Synth Layers.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Vox Rider Synth Layers.wav"
    },
    {
     "row": 37,
@@ -2189,7 +2196,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 0,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Tiny Toy Synth (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Tiny Toy Synth (C 128).wav"
    },
    {
     "row": 38,
@@ -2204,7 +2211,7 @@
     "energy": 0.693,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Precision Synth Layers.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Precision Synth Layers.wav"
    },
    {
     "row": 39,
@@ -2220,7 +2227,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": -1,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Comic Relief Synth (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Comic Relief Synth (C 128).wav"
    },
    {
     "row": 40,
@@ -2235,7 +2242,7 @@
     "energy": 0.755,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Off Grid Lead Synth.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Off Grid Lead Synth.wav"
    },
    {
     "row": 41,
@@ -2251,7 +2258,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": -1,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Digging Deep Synth (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Digging Deep Synth (C 128).wav"
    },
    {
     "row": 42,
@@ -2267,7 +2274,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 0,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Tasty Rhythm Synth (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Tasty Rhythm Synth (C 128).wav"
    },
    {
     "row": 43,
@@ -2282,7 +2289,7 @@
     "energy": 0.877,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Uncharted Depths Synth.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Uncharted Depths Synth.wav"
    },
    {
     "row": 44,
@@ -2298,7 +2305,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": -1,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Zippy Synth (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Zippy Synth (C 128).wav"
    },
    {
     "row": 45,
@@ -2313,7 +2320,7 @@
     "energy": 0.892,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Deep Dream Synth.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Deep Dream Synth.wav"
    },
    {
     "row": 46,
@@ -2329,7 +2336,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": -1,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Vintage Stab Synth (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Vintage Stab Synth (C 128).wav"
    },
    {
     "row": 47,
@@ -2344,7 +2351,7 @@
     "energy": 0.962,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Stutter Synth Layers.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Stutter Synth Layers.wav"
    },
    {
     "row": 48,
@@ -2359,7 +2366,7 @@
     "energy": 0.981,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Epic Anthem Synth.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Epic Anthem Synth.wav"
    },
    {
     "row": 49,
@@ -2374,7 +2381,7 @@
     "energy": 0.991,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Fluid Emotion Synth.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Fluid Emotion Synth.wav"
    },
    {
     "row": 50,
@@ -2389,7 +2396,7 @@
     "energy": 0.995,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Rolling Emo Synth.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Rolling Emo Synth.wav"
    },
    {
     "row": 51,
@@ -2404,10 +2411,10 @@
     "energy": 1.17,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part A/Above And Beyond Synth.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Synths/Above And Beyond Synth.wav"
    }
   ],
-  "Part B": [
+  "Music Beds": [
    {
     "row": 0,
     "name": "Complete Lead Layers 03",
@@ -2422,7 +2429,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 4,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Complete Lead Layers 03 (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Complete Lead Layers 03 (C 128).wav"
    },
    {
     "row": 1,
@@ -2438,7 +2445,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 4,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Triumph Chord Layers (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Triumph Chord Layers (C 128).wav"
    },
    {
     "row": 2,
@@ -2453,7 +2460,7 @@
     "energy": -0.033,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Lightspeed Lead Layers.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Lightspeed Lead Layers.wav"
    },
    {
     "row": 3,
@@ -2469,7 +2476,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": -2,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Monster Chord Layers (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Monster Chord Layers (C 128).wav"
    },
    {
     "row": 4,
@@ -2485,7 +2492,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 3,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Amalgamate Chord Layers (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Amalgamate Chord Layers (C 128).wav"
    },
    {
     "row": 5,
@@ -2500,7 +2507,7 @@
     "energy": -0.003,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Rusty Groove Layers.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Rusty Groove Layers.wav"
    },
    {
     "row": 6,
@@ -2516,7 +2523,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 4,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Lucky Shot Chord Layers (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Lucky Shot Chord Layers (C 128).wav"
    },
    {
     "row": 7,
@@ -2532,7 +2539,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 4,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Subtle Grain Layers (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Subtle Grain Layers (C 128).wav"
    },
    {
     "row": 8,
@@ -2548,7 +2555,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 0,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Deep Space Synth Layers (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Deep Space Synth Layers (C 128).wav"
    },
    {
     "row": 9,
@@ -2564,7 +2571,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 2,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Novel Limbo Layers (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Novel Limbo Layers (C 128).wav"
    },
    {
     "row": 10,
@@ -2579,7 +2586,7 @@
     "energy": 0.087,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Mass Appeal Layers 02.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Mass Appeal Layers 02.wav"
    },
    {
     "row": 11,
@@ -2595,7 +2602,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 4,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Sharp Chord Layers (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Sharp Chord Layers (C 128).wav"
    },
    {
     "row": 12,
@@ -2610,7 +2617,7 @@
     "energy": 0.093,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Mass Appeal Layers 03.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Mass Appeal Layers 03.wav"
    },
    {
     "row": 13,
@@ -2626,7 +2633,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": -2,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Bubble Gum Synth Layers (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Bubble Gum Synth Layers (C 128).wav"
    },
    {
     "row": 14,
@@ -2641,7 +2648,7 @@
     "energy": 0.105,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Midas Touch Layers.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Midas Touch Layers.wav"
    },
    {
     "row": 15,
@@ -2657,7 +2664,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 3,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/True Bliss Chord Layers (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/True Bliss Chord Layers (C 128).wav"
    },
    {
     "row": 16,
@@ -2673,7 +2680,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 0,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Impossible Chord Layers (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Impossible Chord Layers (C 128).wav"
    },
    {
     "row": 17,
@@ -2688,7 +2695,7 @@
     "energy": 0.123,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Mass Appeal Layers 01.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Mass Appeal Layers 01.wav"
    },
    {
     "row": 18,
@@ -2704,7 +2711,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": -1,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Super Gloss Layers (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Super Gloss Layers (C 128).wav"
    },
    {
     "row": 19,
@@ -2719,7 +2726,7 @@
     "energy": 0.13,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Royalty Chord Layers.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Royalty Chord Layers.wav"
    },
    {
     "row": 20,
@@ -2735,7 +2742,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": -1,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Aye Aye Synth Layers (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Aye Aye Synth Layers (C 128).wav"
    },
    {
     "row": 21,
@@ -2751,7 +2758,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": -4,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Pure Pattern Layers (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Pure Pattern Layers (C 128).wav"
    },
    {
     "row": 22,
@@ -2767,7 +2774,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 2,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Cold Fusion Synth Layers (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Cold Fusion Synth Layers (C 128).wav"
    },
    {
     "row": 23,
@@ -2783,7 +2790,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 4,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Agile Lead Layers (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Agile Lead Layers (C 128).wav"
    },
    {
     "row": 24,
@@ -2799,7 +2806,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 3,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Exploration Synth Layers (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Exploration Synth Layers (C 128).wav"
    },
    {
     "row": 25,
@@ -2815,7 +2822,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 0,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Hungry Wolf Lead Layers (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Hungry Wolf Lead Layers (C 128).wav"
    },
    {
     "row": 26,
@@ -2831,7 +2838,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": -1,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Bot Chord Layers 01 (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Bot Chord Layers 01 (C 128).wav"
    },
    {
     "row": 27,
@@ -2846,7 +2853,7 @@
     "energy": 0.274,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Purple Hue Lead Layers.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Purple Hue Lead Layers.wav"
    },
    {
     "row": 28,
@@ -2861,7 +2868,7 @@
     "energy": 0.316,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Sonic Boom Synth Layers.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Sonic Boom Synth Layers.wav"
    },
    {
     "row": 29,
@@ -2876,7 +2883,7 @@
     "energy": 0.34,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Evolution Chord Layers.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Evolution Chord Layers.wav"
    },
    {
     "row": 30,
@@ -2891,7 +2898,7 @@
     "energy": 0.377,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Icebreaker Synth Layers.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Icebreaker Synth Layers.wav"
    },
    {
     "row": 31,
@@ -2907,7 +2914,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 0,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Fashion Show Music (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Fashion Show Music (C 128).wav"
    },
    {
     "row": 32,
@@ -2923,7 +2930,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": -1,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Bot Chord Layers 02 (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Bot Chord Layers 02 (C 128).wav"
    },
    {
     "row": 33,
@@ -2938,7 +2945,7 @@
     "energy": 0.437,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Glitter and Gold Layers.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Glitter and Gold Layers.wav"
    },
    {
     "row": 34,
@@ -2954,7 +2961,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": -2,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Cut Loose Synth Layers (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Cut Loose Synth Layers (C 128).wav"
    },
    {
     "row": 35,
@@ -2970,7 +2977,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 3,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/On Hold Chord Layers (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/On Hold Chord Layers (C 128).wav"
    },
    {
     "row": 36,
@@ -2986,7 +2993,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 0,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Heatseeker Synth Layers (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Heatseeker Synth Layers (C 128).wav"
    },
    {
     "row": 37,
@@ -3002,7 +3009,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": -3,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Nimble Synth Music (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Nimble Synth Music (C 128).wav"
    },
    {
     "row": 38,
@@ -3018,7 +3025,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 0,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Circuit Break Layers (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Circuit Break Layers (C 128).wav"
    },
    {
     "row": 39,
@@ -3034,7 +3041,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 3,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Scorcher Melody Layers (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Scorcher Melody Layers (C 128).wav"
    },
    {
     "row": 40,
@@ -3050,7 +3057,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": -2,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Rogue Wave Synth Layers (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Rogue Wave Synth Layers (C 128).wav"
    },
    {
     "row": 41,
@@ -3065,7 +3072,7 @@
     "energy": 0.642,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Multitask Groove Layers.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Multitask Groove Layers.wav"
    },
    {
     "row": 42,
@@ -3080,7 +3087,7 @@
     "energy": 0.654,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Clicker Lead Layers.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Clicker Lead Layers.wav"
    },
    {
     "row": 43,
@@ -3096,7 +3103,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": -2,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Descending Riff Music (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Descending Riff Music (C 128).wav"
    },
    {
     "row": 44,
@@ -3111,7 +3118,7 @@
     "energy": 0.702,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Pop Star Layers.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Pop Star Layers.wav"
    },
    {
     "row": 45,
@@ -3127,7 +3134,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": -3,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Game Theory Synth Layers (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Game Theory Synth Layers (C 128).wav"
    },
    {
     "row": 46,
@@ -3143,7 +3150,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 3,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Matrix Chord Music (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Matrix Chord Music (C 128).wav"
    },
    {
     "row": 47,
@@ -3158,7 +3165,7 @@
     "energy": 0.889,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Club Organic Music.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Club Organic Music.wav"
    },
    {
     "row": 48,
@@ -3174,7 +3181,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 3,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Pleasant Reminder Music (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Pleasant Reminder Music (C 128).wav"
    },
    {
     "row": 49,
@@ -3190,7 +3197,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": -2,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Marimba Stutter Music (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Marimba Stutter Music (C 128).wav"
    },
    {
     "row": 50,
@@ -3205,7 +3212,7 @@
     "energy": 1.142,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Classic Anthem Music.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Classic Anthem Music.wav"
    },
    {
     "row": 51,
@@ -3220,10 +3227,10 @@
     "energy": 1.154,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part B/Remember Back Music.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Music Beds/Remember Back Music.wav"
    }
   ],
-  "Part X": [
+  "Toppers": [
    {
     "row": 0,
     "name": "Electro Clap Topper",
@@ -3237,7 +3244,7 @@
     "energy": -0.215,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Electro Clap Topper.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Electro Clap Topper.wav"
    },
    {
     "row": 1,
@@ -3253,7 +3260,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 0,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Classic Hat Topper (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Classic Hat Topper (C 128).wav"
    },
    {
     "row": 2,
@@ -3268,7 +3275,7 @@
     "energy": -0.137,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Static Electricity Topper 05.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Static Electricity Topper 05.wav"
    },
    {
     "row": 3,
@@ -3283,7 +3290,7 @@
     "energy": -0.116,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Rocket Fuel Beat 04.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Rocket Fuel Beat 04.wav"
    },
    {
     "row": 4,
@@ -3298,7 +3305,7 @@
     "energy": -0.032,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Static Electricity Topper 02.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Static Electricity Topper 02.wav"
    },
    {
     "row": 5,
@@ -3313,7 +3320,7 @@
     "energy": -0.011,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Electro Topper 05.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Electro Topper 05.wav"
    },
    {
     "row": 6,
@@ -3328,7 +3335,7 @@
     "energy": 0.011,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Electro Topper 02.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Electro Topper 02.wav"
    },
    {
     "row": 7,
@@ -3343,7 +3350,7 @@
     "energy": 0.025,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Electro Topper 11.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Electro Topper 11.wav"
    },
    {
     "row": 8,
@@ -3358,7 +3365,7 @@
     "energy": 0.053,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Electro Topper 08.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Electro Topper 08.wav"
    },
    {
     "row": 9,
@@ -3374,7 +3381,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 0,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Wonky Beat Topper (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Wonky Beat Topper (C 128).wav"
    },
    {
     "row": 10,
@@ -3389,7 +3396,7 @@
     "energy": 0.081,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Electro Topper 07.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Electro Topper 07.wav"
    },
    {
     "row": 11,
@@ -3405,7 +3412,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 0,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Trippy Hat Topper (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Trippy Hat Topper (C 128).wav"
    },
    {
     "row": 12,
@@ -3420,7 +3427,7 @@
     "energy": 0.144,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Electro Topper 01.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Electro Topper 01.wav"
    },
    {
     "row": 13,
@@ -3435,7 +3442,7 @@
     "energy": 0.151,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Mad Hatter Beat 04.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Mad Hatter Beat 04.wav"
    },
    {
     "row": 14,
@@ -3450,7 +3457,7 @@
     "energy": 0.151,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Viper Bite Beat 03.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Viper Bite Beat 03.wav"
    },
    {
     "row": 15,
@@ -3466,7 +3473,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 0,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Hyped Hat Topper (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Hyped Hat Topper (C 128).wav"
    },
    {
     "row": 16,
@@ -3482,7 +3489,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 0,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Super Hat Clap Topper (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Super Hat Clap Topper (C 128).wav"
    },
    {
     "row": 17,
@@ -3497,7 +3504,7 @@
     "energy": 0.173,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Static Electricity Topper 03.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Static Electricity Topper 03.wav"
    },
    {
     "row": 18,
@@ -3512,7 +3519,7 @@
     "energy": 0.18,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Electro Topper 06.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Electro Topper 06.wav"
    },
    {
     "row": 19,
@@ -3527,7 +3534,7 @@
     "energy": 0.18,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Static Electricity Topper 07.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Static Electricity Topper 07.wav"
    },
    {
     "row": 20,
@@ -3543,7 +3550,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 0,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Phaser Stun Topper (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Phaser Stun Topper (C 128).wav"
    },
    {
     "row": 21,
@@ -3558,7 +3565,7 @@
     "energy": 0.208,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Electro Topper 10.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Electro Topper 10.wav"
    },
    {
     "row": 22,
@@ -3573,7 +3580,7 @@
     "energy": 0.243,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Electro Topper 03.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Electro Topper 03.wav"
    },
    {
     "row": 23,
@@ -3588,7 +3595,7 @@
     "energy": 0.25,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Marathon Train Beat 02.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Marathon Train Beat 02.wav"
    },
    {
     "row": 24,
@@ -3604,7 +3611,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 0,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Shaken Topper (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Shaken Topper (C 128).wav"
    },
    {
     "row": 25,
@@ -3619,7 +3626,7 @@
     "energy": 0.299,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Electro Topper 12.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Electro Topper 12.wav"
    },
    {
     "row": 26,
@@ -3634,7 +3641,7 @@
     "energy": 0.313,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Almost Reverse Topper.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Almost Reverse Topper.wav"
    },
    {
     "row": 27,
@@ -3649,7 +3656,7 @@
     "energy": 0.342,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Electro Snare Topper.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Electro Snare Topper.wav"
    },
    {
     "row": 28,
@@ -3665,7 +3672,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 0,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Stirred Topper (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Stirred Topper (C 128).wav"
    },
    {
     "row": 29,
@@ -3680,7 +3687,7 @@
     "energy": 0.391,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Electro Topper 09.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Electro Topper 09.wav"
    },
    {
     "row": 30,
@@ -3696,7 +3703,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 0,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Tom Club Beat 02 (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Tom Club Beat 02 (C 128).wav"
    },
    {
     "row": 31,
@@ -3711,7 +3718,7 @@
     "energy": 0.426,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Crunchy Clap Topper.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Crunchy Clap Topper.wav"
    },
    {
     "row": 32,
@@ -3726,7 +3733,7 @@
     "energy": 0.461,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Downtown Hook Beat 03.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Downtown Hook Beat 03.wav"
    },
    {
     "row": 33,
@@ -3741,7 +3748,7 @@
     "energy": 0.461,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Laser Blaster Beat.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Laser Blaster Beat.wav"
    },
    {
     "row": 34,
@@ -3757,7 +3764,7 @@
     "loop": true,
     "instant": false,
     "rendered_from": 0,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Double Down Topper (C 128).wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Double Down Topper (C 128).wav"
    },
    {
     "row": 35,
@@ -3772,7 +3779,7 @@
     "energy": 0.475,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Static Electricity Topper 08.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Static Electricity Topper 08.wav"
    },
    {
     "row": 36,
@@ -3787,7 +3794,7 @@
     "energy": 0.482,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Electro Topper 04.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Electro Topper 04.wav"
    },
    {
     "row": 37,
@@ -3802,7 +3809,7 @@
     "energy": 0.637,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Dark Clap Topper 2.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Dark Clap Topper 2.wav"
    },
    {
     "row": 38,
@@ -3817,7 +3824,7 @@
     "energy": 0.644,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Tight Clap Topper.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Tight Clap Topper.wav"
    },
    {
     "row": 39,
@@ -3832,7 +3839,7 @@
     "energy": 0.673,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Dark Clap Topper.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Dark Clap Topper.wav"
    },
    {
     "row": 40,
@@ -3847,7 +3854,7 @@
     "energy": 0.75,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Tight House Topper.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Tight House Topper.wav"
    },
    {
     "row": 41,
@@ -3862,7 +3869,7 @@
     "energy": 0.757,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/SciFi Topper.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/SciFi Topper.wav"
    },
    {
     "row": 42,
@@ -3877,7 +3884,7 @@
     "energy": 0.778,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Marching Drum Topper.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Marching Drum Topper.wav"
    },
    {
     "row": 43,
@@ -3892,7 +3899,7 @@
     "energy": 0.856,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Roomy Clap Topper.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Roomy Clap Topper.wav"
    },
    {
     "row": 44,
@@ -3907,7 +3914,7 @@
     "energy": 0.947,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Military Roll Topper.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Military Roll Topper.wav"
    },
    {
     "row": 45,
@@ -3922,7 +3929,7 @@
     "energy": 1.032,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Slippery Shuffle Topper.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Slippery Shuffle Topper.wav"
    },
    {
     "row": 46,
@@ -3937,7 +3944,7 @@
     "energy": 1.046,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Instant House Topper.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Instant House Topper.wav"
    },
    {
     "row": 47,
@@ -3952,7 +3959,7 @@
     "energy": 1.095,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Stompy Clap Topper.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Stompy Clap Topper.wav"
    },
    {
     "row": 48,
@@ -3967,7 +3974,7 @@
     "energy": 1.137,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/House Clap Topper.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/House Clap Topper.wav"
    },
    {
     "row": 49,
@@ -3982,7 +3989,7 @@
     "energy": 1.165,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Rapid Snare Topper.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Rapid Snare Topper.wav"
    },
    {
     "row": 50,
@@ -3997,7 +4004,7 @@
     "energy": 1.18,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Clap Swing Topper.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Clap Swing Topper.wav"
    },
    {
     "row": 51,
@@ -4012,13 +4019,13 @@
     "energy": 1.208,
     "loop": true,
     "instant": false,
-    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Part X/Big Snare Roll Topper.wav"
+    "path": "D:/Coding Projects/LoopMix/samples/staged/Electro House/Toppers/Big Snare Roll Topper.wav"
    }
   ],
   "Break": [
    {
     "row": 0,
-    "name": "Laser Noise Effect 06 [Bass, Part A, Part B]",
+    "name": "Laser Noise Effect 06 [Bass, Synths, Music Beds]",
     "file": "Laser Noise Effect 06.wav",
     "beats": 8,
     "audio_beats": 8.0,
@@ -4033,7 +4040,7 @@
    },
    {
     "row": 1,
-    "name": "Falling Star Effect 13 [Bass, Part A, Part B]",
+    "name": "Falling Star Effect 13 [Bass, Synths, Music Beds]",
     "file": "Falling Star Effect 13.wav",
     "beats": 4,
     "audio_beats": 4.0,
@@ -4048,7 +4055,7 @@
    },
    {
     "row": 2,
-    "name": "Warp Speed Effect 11 [Bass, Part A, Part B]",
+    "name": "Warp Speed Effect 11 [Bass, Synths, Music Beds]",
     "file": "Warp Speed Effect 11.wav",
     "beats": 4,
     "audio_beats": 4.0,
@@ -4063,7 +4070,7 @@
    },
    {
     "row": 3,
-    "name": "Laser Noise Effect 02 [Bass, Part A, Part B]",
+    "name": "Laser Noise Effect 02 [Bass, Synths, Music Beds]",
     "file": "Laser Noise Effect 02.wav",
     "beats": 8,
     "audio_beats": 8.0,
@@ -4078,7 +4085,7 @@
    },
    {
     "row": 4,
-    "name": "Warp Speed Effect 24 [Bass, Part A, Part B]",
+    "name": "Warp Speed Effect 24 [Bass, Synths, Music Beds]",
     "file": "Warp Speed Effect 24.wav",
     "beats": 16,
     "audio_beats": 16.149,
@@ -4093,7 +4100,7 @@
    },
    {
     "row": 13,
-    "name": "Electro Riser 03 [Bass, Part A, Part B]",
+    "name": "Electro Riser 03 [Bass, Synths, Music Beds]",
     "file": "Electro Riser 03.wav",
     "beats": 8,
     "audio_beats": 8.0,
@@ -4108,7 +4115,7 @@
    },
    {
     "row": 14,
-    "name": "Falling Star Effect 14 [Bass, Part A, Part B]",
+    "name": "Falling Star Effect 14 [Bass, Synths, Music Beds]",
     "file": "Falling Star Effect 14.wav",
     "beats": 4,
     "audio_beats": 4.0,
@@ -4123,7 +4130,7 @@
    },
    {
     "row": 15,
-    "name": "Falling Star Effect 15 [Bass, Part A, Part B]",
+    "name": "Falling Star Effect 15 [Bass, Synths, Music Beds]",
     "file": "Falling Star Effect 15.wav",
     "beats": 4,
     "audio_beats": 4.0,
@@ -4138,7 +4145,7 @@
    },
    {
     "row": 16,
-    "name": "Warp Speed Effect 01 [Bass, Part A, Part B]",
+    "name": "Warp Speed Effect 01 [Bass, Synths, Music Beds]",
     "file": "Warp Speed Effect 01.wav",
     "beats": 4,
     "audio_beats": 4.0,
@@ -4153,7 +4160,7 @@
    },
    {
     "row": 17,
-    "name": "Laser Noise Effect 03 [Bass, Part A, Part B]",
+    "name": "Laser Noise Effect 03 [Bass, Synths, Music Beds]",
     "file": "Laser Noise Effect 03.wav",
     "beats": 8,
     "audio_beats": 8.0,
@@ -4168,7 +4175,7 @@
    },
    {
     "row": 26,
-    "name": "Warp Speed Effect 04 [Bass, Part A, Part B]",
+    "name": "Warp Speed Effect 04 [Bass, Synths, Music Beds]",
     "file": "Warp Speed Effect 04.wav",
     "beats": 4,
     "audio_beats": 4.0,
@@ -4183,7 +4190,7 @@
    },
    {
     "row": 27,
-    "name": "Warp Speed Effect 02 [Bass, Part A, Part B]",
+    "name": "Warp Speed Effect 02 [Bass, Synths, Music Beds]",
     "file": "Warp Speed Effect 02.wav",
     "beats": 4,
     "audio_beats": 4.0,
@@ -4198,7 +4205,7 @@
    },
    {
     "row": 28,
-    "name": "Falling Star Effect 16 [Bass, Part A, Part B]",
+    "name": "Falling Star Effect 16 [Bass, Synths, Music Beds]",
     "file": "Falling Star Effect 16.wav",
     "beats": 4,
     "audio_beats": 4.0,
@@ -4213,7 +4220,7 @@
    },
    {
     "row": 29,
-    "name": "Warp Speed Effect 09 [Bass, Part A, Part B]",
+    "name": "Warp Speed Effect 09 [Bass, Synths, Music Beds]",
     "file": "Warp Speed Effect 09.wav",
     "beats": 8,
     "audio_beats": 8.0,
@@ -4228,7 +4235,7 @@
    },
    {
     "row": 30,
-    "name": "Electro Riser 01 [Bass, Part A, Part B]",
+    "name": "Electro Riser 01 [Bass, Synths, Music Beds]",
     "file": "Electro Riser 01.wav",
     "beats": 4,
     "audio_beats": 3.988,
@@ -4243,7 +4250,7 @@
    },
    {
     "row": 39,
-    "name": "Electro Riser 02 [Bass, Part A, Part B]",
+    "name": "Electro Riser 02 [Bass, Synths, Music Beds]",
     "file": "Electro Riser 02.wav",
     "beats": 4,
     "audio_beats": 3.988,
@@ -4258,7 +4265,7 @@
    },
    {
     "row": 40,
-    "name": "Laser Noise Effect 01 [Bass, Part A, Part B]",
+    "name": "Laser Noise Effect 01 [Bass, Synths, Music Beds]",
     "file": "Laser Noise Effect 01.wav",
     "beats": 8,
     "audio_beats": 8.0,
@@ -4273,7 +4280,7 @@
    },
    {
     "row": 41,
-    "name": "Warp Speed Effect 07 [Bass, Part A, Part B]",
+    "name": "Warp Speed Effect 07 [Bass, Synths, Music Beds]",
     "file": "Warp Speed Effect 07.wav",
     "beats": 8,
     "audio_beats": 8.0,
@@ -4288,7 +4295,7 @@
    },
    {
     "row": 42,
-    "name": "Warp Speed Effect 05 [Bass, Part A, Part B]",
+    "name": "Warp Speed Effect 05 [Bass, Synths, Music Beds]",
     "file": "Warp Speed Effect 05.wav",
     "beats": 4,
     "audio_beats": 4.0,
@@ -4303,7 +4310,7 @@
    },
    {
     "row": 43,
-    "name": "Laser Noise Effect 06 [Bass, Part A, Part B]",
+    "name": "Laser Noise Effect 06 [Bass, Synths, Music Beds]",
     "file": "Laser Noise Effect 06.wav",
     "beats": 8,
     "audio_beats": 8.0,
@@ -4629,11 +4636,11 @@
   ]
  },
  "left_out": {
-  "Drums": 4,
+  "Beats": 4,
   "Bass": 62,
-  "Part A": 55,
-  "Part B": 32,
-  "Part X": 20,
+  "Synths": 55,
+  "Music Beds": 32,
+  "Toppers": 20,
   "Break": 0,
   "FX": 0
  }
