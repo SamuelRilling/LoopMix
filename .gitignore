@@ -12,3 +12,6 @@ __pycache__/
 
 # Live project folders created when saving a set
 sets/**/*Project/
+
+# Tracked Set template for als_writer
+!templates/*.als
