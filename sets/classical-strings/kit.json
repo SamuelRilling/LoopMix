@@ -1,0 +1,13 @@
+{
+ "name": "classical-strings",
+ "source": "D:/Coding Projects/LoopMix/samples/classical/musicradar-twisted-orchestra-samples/LoopKit08 80bpm",
+ "tempo": 80,
+ "key": "A",
+ "section_pattern": "-(\\d+)\\.wav$",
+ "parts": {
+  "Part A": ["Sound Type A", "Sound Type B"],
+  "Part B": ["Sound Type C", "Sound Type D"],
+  "Part X": ["Sound Type E", "Sound Type F"]
+ },
+ "break": {"folders": ["Sound Type G"], "keep": ["Part A"]}
+}

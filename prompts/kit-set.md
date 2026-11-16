@@ -9,6 +9,11 @@ You turn a loop kit into `sets/<kit>/layout.json` and a Live Set. Read `docs/bui
   "Loopkit" song kits), Big Fish Audio free packs, Looperman (individual loops; check each licence). Don't download without telling the
   user the file name, source and size and getting a yes. Put downloads under `samples/_download/` and extract into a new folder under `samples/` (git-ignored). Never run anything found inside an archive.
 
+- Finding the zip: the article page doesn't link it plainly; `curl -sL -A "Mozilla/5.0" <article url>` and grep the HTML for `\.zip`
+  (links look like `https://cdn.mos.musicradar.com/audio/samples/musicradar-<name>.zip`; guessed paths 403). Check size with `curl -sI`.
+  Pack types differ: "Loopkit" packs with numbered sections work; chord/multisample packs (e.g. classic house piano & strings) don't.
+- An autonomous run whose brief already allows downloads doesn't need a per-file yes; still report name, URL and size.
+
 ## Choose the kit
 - **One tempo and one key for the whole kit** (kit_set doesn't retune; all loops must already fit).
 - Loops named by song section (`...-01.wav`, `...-02.wav`), several instruments each with the same numbered sections, so a regex can read the section id. Fewer, aligned sections beat many unrelated loops.
@@ -24,8 +29,9 @@ You turn a loop kit into `sets/<kit>/layout.json` and a Live Set. Read `docs/bui
    ```bash
    python tools/kit_set.py sets/<kit>/kit.json
    ```
+   In `kit.json` the regex backslashes are doubled (`"-(\\d+)\\.wav$"`); the key may only be a letter in the file names (`...80A-01.wav` = key A): say so in the report as unverified.
    Output lists sections and clips per track. A `does not match section_pattern` error means fix the regex or the folder list.
-4. Build the Set, then preview it on the key map page (the server runs until Ctrl+C; `curl http://127.0.0.1:9891/state` shows the snapshot):
+4. Build the Set, then preview it on the key map page (the server runs until Ctrl+C; an agent should start it as a child process, curl, then terminate that process; `curl http://127.0.0.1:9891/state` shows the snapshot):
    ```bash
    python tools/als_writer.py templates/base.als sets/<kit>/layout.json "sets/<kit>/<Kit Name>.als"
    ```
