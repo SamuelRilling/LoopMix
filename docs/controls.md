@@ -6,7 +6,7 @@ UMX25 (`BASE_NOTE` = 48, C3).
 | Control | Loop mode | Play mode |
 |---|---|---|
 | B1 (CC 97) | → Play (arms the `Play` track, keys go to its synth) | → Loop (disarms `Play`, script owns the keys again) |
-| B2 (CC 96), B3 (66), B4 (67), B5 (64), B6 (65) | select part: Drums / Bass / Part A / Part B / Part X (selects that track in Live) | ignored |
+| B2 (CC 96), B3 (66), B4 (67), B5 (64), B6 (65), B7 (7) | select part 1–6 of the Set, in track order (selects that track in Live); a button past the Set's part count does nothing | ignored |
 | Bottom C (C3) | stop the selected part (at Live's launch quantization; also cancels a phrase-held launch) | plays notes |
 | 13 white keys D3 E3 F3 G3 A3 B3 C4 D4 E4 F4 G4 A4 B4 | loops 1–13 of the selected part in the current section | play notes |
 | Lower black keys C#3 D#3 F#3 G#3 A#3 | breaks 1–5 of the current section | play notes |
@@ -47,18 +47,22 @@ Turning it off releases anything held. Only active while the transport runs.
 |---|---|---|
 | `MIDI_CHANNEL` | 0 | channel the UMX25 sends on (0 = channel 1) |
 | `MODE_CC` | 97 | B1 |
-| `PART_CCS` | 96, 66, 67, 64, 65 | B2–B6, in the order of `PART_TRACKS` |
+| `PART_CCS` | 96, 66, 67, 64, 65, 7 | B2–B7 → parts 1–6 |
 | `BUTTONS_LATCH` | True | buttons send 127 then 0; every change counts as a press. False = act on value > 0 only |
 | `OCTAVE_UP_CC` | 20 | right octave button |
 | `OCTAVE_DOWN_CC` | 21 | left octave button |
+| `SAME_VALUE_CCS` | 7 | buttons that send one value on every press (B7): any message is a press |
 | `PHRASE_CC` | 10 | B8 |
 | `BASE_NOTE` | 48 | note number of the lowest key (C3) |
 | `LOG_ALL_CCS` | False | log every CC not otherwise used (to find button numbers) |
-| `PART_TRACKS` | Drums, Bass, Part A, Part B, Part X | Live track names for B2–B6 |
 | `PLAY_TRACK` | `Play` | track armed in Play mode; needs a Pitch (MIDI effect) device for the octave buttons |
 | `BREAK_TRACK` | `Break` | track holding breaks |
 | `FX_TRACKS` | FX 1 … FX 5 | one track per FX key |
 | `ROWS_PER_SECTION` | 13 | Session rows per section; sections = scenes // this |
 | `VIZ_PORT` | 9890 | key map page port; `None` turns it off |
 
-Track names must match the Set exactly; a missing track shows "LoopMix: no track named …" in Live's status bar.
+## Parts
+Each Set carries its own part tracks (1–6, up to 6 parts): every audio track that is not `Break` or `FX 1`…`FX 5`, in Set
+order, the first six on B2–B7. A Set has no empty tracks, so `Break` and each `FX n` exist only when the set has clips for
+them; a break or FX key without its track does nothing. Only `Play` must be named exactly (a missing `Play` shows
+"LoopMix: no track named …" in Live's status bar).

@@ -21,7 +21,9 @@ LAYOUT = Layout(
     base_note=config.BASE_NOTE,
     latch=config.BUTTONS_LATCH,
     rows_per_section=config.ROWS_PER_SECTION,
+    same_value_ccs=tuple(config.SAME_VALUE_CCS),
 )
+MAX_PARTS = len(config.PART_CCS)
 ROWS = config.ROWS_PER_SECTION
 VIZ_EVERY = 2  # update_display ticks between key map snapshots; the page animates in between
 
@@ -67,7 +69,7 @@ class LoopMix(ControlSurface):
     def _on_button(self, value, sender):
         cc = sender.message_identifier()
         self.log_message("LoopMix CC %d = %d" % (cc, value))
-        self._apply(on_cc(self._state, cc, value, LAYOUT, self._section_count()))
+        self._apply(on_cc(self._state, cc, value, LAYOUT, self._section_count(), len(self._parts())))
 
     def _on_probe(self, value, sender):
         self.log_message("LoopMix unassigned CC %d = %d" % (sender.message_identifier(), value))
@@ -101,8 +103,14 @@ class LoopMix(ControlSurface):
             self.show_message("LoopMix: no track named '%s'" % name)
         return track
 
+    def _parts(self):
+        """Part tracks: the Set's audio tracks other than Break and FX, in Set order."""
+        others = (config.BREAK_TRACK,) + tuple(config.FX_TRACKS)
+        return [t for t in self.song().tracks if t.has_audio_input and t.name not in others][:MAX_PARTS]
+
     def _part_track(self, part):
-        return self._track(config.PART_TRACKS[part])
+        parts = self._parts()
+        return parts[part] if part < len(parts) else None
 
     def _section_count(self):
         return max(len(self.song().scenes) // ROWS, 1)
@@ -123,7 +131,7 @@ class LoopMix(ControlSurface):
                 return
 
     def _fire_once(self, name, row):
-        track = self._track(name)
+        track = self._track(name, quiet=True)   # Break / FX tracks are optional
         if track is None or row >= len(track.clip_slots) or not track.clip_slots[row].has_clip:
             return None
         slot = track.clip_slots[row]
@@ -177,9 +185,8 @@ class LoopMix(ControlSurface):
 
     def _do_section(self, action):
         """Every playing part moves to the same key in the new section, on the next bar."""
-        for part, name in enumerate(config.PART_TRACKS):
-            track = self._track(name, quiet=True)
-            if track is not None and track.playing_slot_index >= 0:
+        for part, track in enumerate(self._parts()):
+            if track.playing_slot_index >= 0:
                 self._launch(part, section_row(track.playing_slot_index, action.section, ROWS))
         self._resume = dict((p, section_row(row, action.section, ROWS)) for p, row in self._resume.items())
         self._pending = dict((p, section_row(row, action.section, ROWS)) for p, row in self._pending.items())
@@ -212,13 +219,13 @@ class LoopMix(ControlSurface):
         self._resume_at = None    # song beat at which to relaunch
 
     def _do_breakdown(self, action):
-        brk = self._track(config.BREAK_TRACK)
+        brk = self._track(config.BREAK_TRACK, quiet=True)
         if brk is None or action.row >= len(brk.clip_slots) or not brk.clip_slots[action.row].has_clip:
             return
-        keep = kept_parts(brk.clip_slots[action.row].clip.name, config.PART_TRACKS)
-        for part, name in enumerate(config.PART_TRACKS):
-            track = self._track(name, quiet=True)
-            if part in keep or track is None or track.playing_slot_index < 0:
+        parts = self._parts()
+        keep = kept_parts(brk.clip_slots[action.row].clip.name, [t.name for t in parts])
+        for part, track in enumerate(parts):
+            if part in keep or track.playing_slot_index < 0:
                 continue
             self._resume.setdefault(part, track.playing_slot_index)
             track.stop_all_clips()
@@ -267,7 +274,7 @@ class LoopMix(ControlSurface):
 
     def _relaunch(self):
         for part, row in self._resume.items():
-            track = self._track(config.PART_TRACKS[part], quiet=True)
+            track = self._part_track(part)
             # Skip parts the player relaunched by hand during the break.
             if track is not None and track.playing_slot_index < 0 and track.fired_slot_index < 0:
                 self._fire_slot(track, row)
@@ -284,10 +291,7 @@ class LoopMix(ControlSurface):
     def _phrase_beats(self):
         """Phrase = the longest loop playing or waiting to start (at least one bar)."""
         lengths = [self._bar()]
-        for part, name in enumerate(config.PART_TRACKS):
-            track = self._track(name, quiet=True)
-            if track is None:
-                continue
+        for part, track in enumerate(self._parts()):
             for row in (track.playing_slot_index, self._pending.get(part, -1)):
                 if 0 <= row < len(track.clip_slots) and track.clip_slots[row].has_clip:
                     lengths.append(track.clip_slots[row].clip.length)
@@ -304,7 +308,7 @@ class LoopMix(ControlSurface):
 
     def _release_pending(self):
         for part, row in self._pending.items():
-            track = self._track(config.PART_TRACKS[part], quiet=True)
+            track = self._part_track(part)
             if track is not None:
                 self._fire_slot(track, row)
         self._pending, self._pending_start = {}, None
@@ -346,15 +350,14 @@ class LoopMix(ControlSurface):
                     for i, k in enumerate(offsets)]
 
         parts = []
-        for i, name in enumerate(config.PART_TRACKS):
-            t = self._track(name, quiet=True)
+        for i, t in enumerate(self._parts()):
             c = clip(t, playing(t))
             parts.append(dict(
-                name=name, selected=i == s.part, playing=clip_name(t, playing(t)),
+                name=t.name, selected=i == s.part, playing=clip_name(t, playing(t)),
                 position=c.playing_position if c is not None else None,
                 length=c.length if c is not None else None,
                 pending=clip_name(t, self._pending[i]) if i in self._pending else ""))
-        part_track = self._track(config.PART_TRACKS[s.part], quiet=True)
+        part_track = self._part_track(s.part)
 
         def fx_key(index, key):
             return self._fx_key(index, key, first)

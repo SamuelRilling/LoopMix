@@ -52,7 +52,7 @@ h1 { margin: 0; font-size: 15px; letter-spacing: .32em; font-weight: 600; color:
 .hint { font-size: 12px; color: var(--dim); margin: 0 0 18px; }
 
 /* Parts with beat rings */
-.parts { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 4px; }
+.parts { display: grid; grid-template-columns: repeat(var(--n, 5), minmax(0, 1fr)); gap: 4px; }
 .part { display: grid; grid-template-columns: 64px 1fr; gap: 10px; align-items: center;
   padding: 10px 12px; background: var(--panel); border-left: 3px solid transparent; min-width: 0; }
 .part.sel { border-left-color: var(--loop); background: #1c2125; }
@@ -140,7 +140,7 @@ h1 { margin: 0; font-size: 15px; letter-spacing: .32em; font-weight: 600; color:
   </section>
   <div id="ladder" class="ladder" aria-label="Sections"></div>
   <p class="hint">Octave ◄ ► change section · B8 phrase sync: loops wait for the phrase's first beat</p>
-  <div id="parts" class="parts" aria-label="Parts, buttons B2 to B6"></div>
+  <div id="parts" class="parts" aria-label="Parts, buttons B2 to B7"></div>
   <div class="kb-wrap">
     <div id="kb" class="kb" aria-label="Keyboard map"></div>
     <div class="veil"><div>PLAY MODE<br><small id="oct"></small></div></div>
@@ -293,6 +293,7 @@ function render(s) {
     return step;
   }));
   rings = [];
+  document.getElementById("parts").style.setProperty("--n", Math.max(s.parts.length, 1));
   document.getElementById("parts").replaceChildren(...s.parts.map((p, i) => {
     const part = el("div", "part" + (p.selected ? " sel" : ""));
     const r = ring(p, bar); rings.push(r);

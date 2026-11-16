@@ -1,6 +1,7 @@
 # LoopMix — UMX25 loop player for Ableton Live 11
 
 Turns a Behringer UMX25 into a GarageBand/Roland-style loop player. One kit per Live Set:
+B2–B7 select up to 6 parts (each set has its own part tracks, no empty tracks),
 13 white keys launch loops of the selected part, black keys fire breaks and FX, the octave
 buttons step through the kit's sections. Loops are pre-rendered to one tempo and key, so
 Live never warps anything while you play.
@@ -34,7 +35,7 @@ Two halves:
 LoopMix/    remote script: config.py (edit), logic.py (pure, tested), loop_mix.py (Live glue), viz.py + viz.html (key map)
 tools/      settings.py (machine paths), apple_loops.py, garageband_set.py, kit_set.py, render_loops.py, audio.py,
             als_writer.py, make_template.py, viz_preview.py, replay_log.py
-templates/  base.als  (tracks/returns/master the writer starts from)
+templates/  base.als  (Play + one Prototype audio track the writer clones, returns, master)
 sets/       <kit>/layout.json (+ kit.json for song kits); *.als are generated and git-ignored
 samples/    audio (git-ignored); samples/staged is linked into Live's User Library
 tests/      python -m pytest -q tests

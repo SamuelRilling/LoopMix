@@ -37,8 +37,8 @@ Live → Preferences → Link/Tempo/MIDI: Control Surface **LoopMix**, Input **U
 Restart Live after any change to `LoopMix/` — scripts load only at startup.
 
 ## 5. UMX25 buttons
-- B1–B6 and B8 send factory CCs and need no setup: B1 = 97, B2–B6 = 96, 66, 67, 64, 65, B8 = 10.
-  B1–B6 latch (127 on one press, 0 on the next); B8 sends the same value every press.
+- B1–B8 send factory CCs and need no setup: B1 = 97, B2–B7 = 96, 66, 67, 64, 65, 7, B8 = 10.
+  B1–B6 latch (127 on one press, 0 on the next); B7 and B8 send the same value every press.
 - The two octave buttons need ASSIGN mode, each with its own controller number:
   1. Press ASSIGN on the UMX25.
   2. Press the **right** octave button, set controller **20**; confirm.
