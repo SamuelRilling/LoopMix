@@ -29,7 +29,7 @@ You turn a loop kit into `sets/<kit>/layout.json` and a Live Set. Read `docs/bui
    ```bash
    python tools/kit_set.py sets/<kit>/kit.json
    ```
-   In `kit.json` the regex backslashes are doubled (`"-(\d+)\.wav$"`); the key may only be a letter in the file names (`...80A-01.wav` = key A): say so in the report as unverified.
+   In `kit.json` the regex backslashes are doubled (`"-(\\d+)\\.wav$"`); the key may only be a letter in the file names (`...80A-01.wav` = key A): say so in the report as unverified.
    Output lists sections and clips per track. A `does not match section_pattern` error means fix the regex or the folder list.
 4. Build the Set, then preview it on the key map page (the server runs until Ctrl+C; an agent should start it as a child process, curl, then terminate that process; `curl http://127.0.0.1:9891/state` shows the snapshot):
    ```bash
